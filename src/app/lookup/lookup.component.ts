@@ -29,15 +29,23 @@ export class LookupComponent implements OnInit {
   		this.sub2 = this.githubService.getRepos().subscribe(repos => {
 		  this.repos = repos;
 		});
-  	}
+	}
 
-  	ngOnInit(){
-  	}
+  ngOnInit(){
+		this.githubService.updateUser(this.userName);
+		this.sub = this.githubService.getUser().subscribe(user => {	
+		  this.user = user;
+		});
 
-  	ngOnDestroy(){
-		this.sub.unsubscribe();
-	  	this.sub2.unsubscribe();
-  	}
+  		this.sub2 = this.githubService.getRepos().subscribe(repos => {
+		  this.repos = repos;
+		});
+  }
+
+  ngOnDestroy(){
+	this.sub.unsubscribe();
+	  this.sub2.unsubscribe();
+  }
 }
 
 export class NgIfSimple {

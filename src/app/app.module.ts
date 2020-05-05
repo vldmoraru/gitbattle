@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LookupComponent } from './lookup/lookup.component';
 import { DateCountPipe } from './date-count.pipe';
-import { MostactiveComponent } from './mostactive/mostactive.component';
 import { BattleComponent } from './battle/battle.component';
 
 @NgModule({
@@ -22,7 +21,6 @@ import { BattleComponent } from './battle/battle.component';
     NotFoundComponent,
     LookupComponent,
     DateCountPipe,
-    MostactiveComponent,
     BattleComponent 
   ],
   imports: [

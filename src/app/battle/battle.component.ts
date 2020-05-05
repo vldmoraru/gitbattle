@@ -21,7 +21,7 @@ export class BattleComponent implements OnInit {
 
   constructor(private githubService:GithubService) {
   }
-  	
+
   findProfile(){
   	this.githubService.updateUser(this.player1Name);
   	this.sub = this.githubService.getUser().subscribe(user => {
@@ -39,6 +39,13 @@ export class BattleComponent implements OnInit {
   }
 
   ngOnInit() {
+  	this.sub = this.githubService.getUser().subscribe(user => {
+      this.user = user;
+    });
+
+    this.sub2 = this.githubService.getUser().subscribe(user2 => {
+      this.user2 = user2;
+    });
   }
 
   ngOnDestroy(){
