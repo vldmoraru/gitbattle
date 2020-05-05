@@ -6,8 +6,8 @@ import { GithubService } from '../github-services/github.service';
   templateUrl: './lookup.component.html',
   styleUrls: ['./lookup.component.css'],
   providers:[GithubService]
-
 })
+
 export class LookupComponent implements OnInit {
 	user:any[];
 	repos:any[];
@@ -23,15 +23,11 @@ export class LookupComponent implements OnInit {
   		
   		this.repos = repos;
   	});
-
   }
   	
   findProfile(){
-
   	this.githubService.updateUser(this.userName);
-
-  	this.githubService.getUser().subscribe(user => {
-  		
+  	this.githubService.getUser().subscribe(user => {	
   		this.user = user;
   	});
 
@@ -39,12 +35,10 @@ export class LookupComponent implements OnInit {
   		
   		this.repos = repos;
   	});
-
   }
 
   ngOnInit() {
   }
-
 }
 
 export class NgIfSimple {

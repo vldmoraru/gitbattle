@@ -14,7 +14,7 @@
 	  <div class="card">
 	  <h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
 	  <div class="card-body">
-	    <div class="row">
+		<div class="row">
 	    	<div class="col-md-4">
 	    		
 	    		<img src="{{user.avatar_url}}" class="img-thumbnail img-fluid">
@@ -41,7 +41,6 @@
 				    <li class="list-group-item" *ngIf="user.company">Company: {{user.company}}</li>
 				 </ul>
 				</div>
-	    		
 	    	</div>
 	    </div>
 	  </div>
@@ -51,8 +50,6 @@
 	<div class="card">
 		<h5 class="card-header">Repos</h5>
 		<div class="card-body col-md-12" >
-			
-				
 				<div class="card">
 				  <ul class="list-group list-group-flush" *ngFor="let repo of repos">
 				    <li class="list-group-item">
@@ -68,15 +65,11 @@
 								<span class="badge badge-info">{{repo.forks}} Forks</span>
 								<br>
 								<a href="{{repo.html_url}}" target="_blank" class="btn btn-outline-info" style="width: 7.5rem">View Repo</a>
-							</div>
-
-				    		
+							</div>	
 				    	</div>
-				    	
 				    </li>
 				  </ul>
 				</div>
 			</div>
-		
 	</div>
 </div>

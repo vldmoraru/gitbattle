@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RoutingModule} from './routing/routing.module';
+import { RoutingModule } from './routing/routing.module';
 import { HttpModule } from '@angular/http';
 import { FormsModule} from '@angular/forms';
 
@@ -16,7 +16,6 @@ import { DateCountPipe } from './date-count.pipe';
 import { MostactiveComponent } from './mostactive/mostactive.component';
 import { BattleComponent } from './battle/battle.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +23,7 @@ import { BattleComponent } from './battle/battle.component';
     LookupComponent,
     DateCountPipe,
     MostactiveComponent,
-    BattleComponent
-    
-    
+    BattleComponent 
   ],
   imports: [
     BrowserModule,
@@ -35,7 +32,6 @@ import { BattleComponent } from './battle/battle.component';
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
     FormsModule
-    
   ],
   providers: [GithubService],
   bootstrap: [AppComponent]

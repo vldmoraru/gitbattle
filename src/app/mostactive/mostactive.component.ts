@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mostactive.component.css']
 })
 export class MostactiveComponent implements OnInit {
-
   constructor() { }
-
   ngOnInit() {
   }
-
 }
