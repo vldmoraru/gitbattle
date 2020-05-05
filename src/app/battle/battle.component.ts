@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-battle',
@@ -15,15 +16,15 @@ export class BattleComponent implements OnInit {
   player1Name:string;
   player2Name:string;
 
+  sub: Subscription;
+  sub2: Subscription;
+
   constructor(private githubService:GithubService) {
-  	this.githubService.getUser().subscribe(user => {
-      this.user = user;
-    });
   }
   	
   findProfile(){
   	this.githubService.updateUser(this.player1Name);
-  	this.githubService.getUser().subscribe(user => {
+  	this.sub = this.githubService.getUser().subscribe(user => {
       this.user = user;
       this.score1 = (user.followers + user.public_repos + user.public_gists) * 2;
     });
@@ -31,13 +32,18 @@ export class BattleComponent implements OnInit {
 
   findProfile2(){
   	this.githubService.updateUser(this.player2Name);
-  	this.githubService.getUser().subscribe(user2 => {
+  	this.sub2 = this.githubService.getUser().subscribe(user2 => {
       this.user2 = user2;
       this.score2 = (user2.followers + user2.public_repos + user2.public_gists) * 2;
     });
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(){
+    this.sub.unsubscribe();
+	  this.sub2.unsubscribe();
   }
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-lookup',
@@ -13,32 +14,30 @@ export class LookupComponent implements OnInit {
 	repos:any[];
 	userName:string;
 
-  constructor(private githubService:GithubService) {
-  	this.githubService.getUser().subscribe(user => {
-  		
-  		this.user = user;
-  	});
+	sub: Subscription;
+	sub2: Subscription;
 
-  	this.githubService.getRepos().subscribe(repos => {
-  		
-  		this.repos = repos;
-  	});
-  }
-  	
-  findProfile(){
-  	this.githubService.updateUser(this.userName);
-  	this.githubService.getUser().subscribe(user => {	
-  		this.user = user;
-  	});
+	constructor(private githubService:GithubService) {
+	}
+	  
+	findProfile(){
+		this.githubService.updateUser(this.userName);
+		this.sub = this.githubService.getUser().subscribe(user => {	
+		  this.user = user;
+		});
 
-  	this.githubService.getRepos().subscribe(repos => {
-  		
-  		this.repos = repos;
-  	});
-  }
+  		this.sub2 = this.githubService.getRepos().subscribe(repos => {
+		  this.repos = repos;
+		});
+  	}
 
-  ngOnInit() {
-  }
+  	ngOnInit(){
+  	}
+
+  	ngOnDestroy(){
+		this.sub.unsubscribe();
+	  	this.sub2.unsubscribe();
+  	}
 }
 
 export class NgIfSimple {
