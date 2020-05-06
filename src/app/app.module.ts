@@ -14,6 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LookupComponent } from './lookup/lookup.component';
 import { DateCountPipe } from './date-count.pipe';
 import { BattleComponent } from './battle/battle.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BattleComponent } from './battle/battle.component';
     NotFoundComponent,
     LookupComponent,
     DateCountPipe,
-    BattleComponent
+    BattleComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

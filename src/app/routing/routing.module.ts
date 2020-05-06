@@ -5,9 +5,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { LookupComponent } from '../lookup/lookup.component';
 import { BattleComponent } from '../battle/battle.component';
+import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
-  { path: '', component: LookupComponent },
+  { path: '', component: HomeComponent },
+  { path: 'lookup', component: LookupComponent },
   { path: 'battle', component: BattleComponent },
   { path: '**', component: NotFoundComponent }
 ]
