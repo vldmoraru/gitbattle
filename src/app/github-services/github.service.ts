@@ -11,19 +11,19 @@ export class GithubService {
    constructor(private _http: Http) {
    }
 
-   getUser() {
+   public getUser() {
       return this._http.get('https://api.github.com/users/' + this.userName + '?client_id='
          + this.clientId + '&client_secret=' + this.clientSecret)
          .map(res => res.json());
    }
 
-   getRepos() {
+   public getRepos() {
       return this._http.get('https://api.github.com/users/' + this.userName + '/repos?client_id='
          + this.clientId + '&client_secret=' + this.clientSecret)
          .map(res => res.json());
    }
 
-   updateUser(userName: string) {
+   public updateUser(userName: string) {
       this.userName = userName;
    }
 }

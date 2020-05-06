@@ -33,7 +33,20 @@
       true,
       140
     ],
-    "member-access": false,
+    "member-access": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "no-public",
+          "check-accessor",
+          "check-constructor",
+          "check-parameter-property"
+        ]
+      },
+      "minLength": 0,
+      "maxLength": 4
+    },
     "member-ordering": [
       true,
       {
@@ -92,8 +105,7 @@
     "radix": true,
     "semicolon": [
       true,
-      "always",
-      "ignore-interfaces"
+      "always"
     ],
     "triple-equals": [
       true,
