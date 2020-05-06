@@ -4,34 +4,11 @@
 <head>
   <meta charset="utf-8">
   <title>Github Battle</title>
-  <script type="text/javascript">
-    function emptylookup() {
-      var x;
-      x = document.getElementById("inputlookup").value;
-      if (x != "") {
-        document.getElementById('showlookup').style.display = 'block';
-      }
-    }
-    function emptybattle() {
-      var x, y;
-      x = document.getElementById("input").value;
-      y = document.getElementById("input2").value;
-      if (x == "") {
-        alert("Enter Player1 username");
-        return false;
-      }
-      else if (y == "") {
-        alert("Enter Player2 username");
-        return false;
-      }
-      else {
-        document.getElementById('showbattle').style.display = 'block';
-      }
-    }
-  </script>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css"
     integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
