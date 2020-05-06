@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -6,48 +6,48 @@ import { Subscription } from 'rxjs/Subscription';
   selector: 'app-lookup',
   templateUrl: './lookup.component.html',
   styleUrls: ['./lookup.component.css'],
-  providers:[GithubService]
+  providers: [GithubService]
 })
 
-export class LookupComponent implements OnInit {
-	user:any[];
-	repos:any[];
-	userName:string;
+export class LookupComponent implements OnInit, OnDestroy {
+  user: any[];
+  repos: any[];
+  userName: string;
 
-	sub: Subscription;
-	sub2: Subscription;
+  sub: Subscription;
+  sub2: Subscription;
 
-	constructor(private githubService:GithubService) {
-	}
-	  
-	findProfile(){
-		this.githubService.updateUser(this.userName);
-		this.sub = this.githubService.getUser().subscribe(user => {	
-		  this.user = user;
-		});
-
-  		this.sub2 = this.githubService.getRepos().subscribe(repos => {
-		  this.repos = repos;
-		});
-	}
-
-  ngOnInit(){
-		this.githubService.updateUser(this.userName);
-		this.sub = this.githubService.getUser().subscribe(user => {	
-		  this.user = user;
-		});
-
-  		this.sub2 = this.githubService.getRepos().subscribe(repos => {
-		  this.repos = repos;
-		});
+  constructor(private githubService: GithubService) {
   }
 
-  ngOnDestroy(){
-	this.sub.unsubscribe();
-	  this.sub2.unsubscribe();
+  findProfile() {
+    this.githubService.updateUser(this.userName);
+    this.sub = this.githubService.getUser().subscribe(user => {
+      this.user = user;
+    });
+
+    this.sub2 = this.githubService.getRepos().subscribe(repos => {
+      this.repos = repos;
+    });
+  }
+
+  ngOnInit() {
+    this.githubService.updateUser(this.userName);
+    this.sub = this.githubService.getUser().subscribe(user => {
+      this.user = user;
+    });
+
+    this.sub2 = this.githubService.getRepos().subscribe(repos => {
+      this.repos = repos;
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+    this.sub2.unsubscribe();
   }
 }
 
 export class NgIfSimple {
-	show: boolean = true;
+  show: true;
 }

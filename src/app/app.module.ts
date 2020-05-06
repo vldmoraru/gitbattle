@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RoutingModule } from './routing/routing.module';
 import { HttpModule } from '@angular/http';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
@@ -21,7 +21,7 @@ import { BattleComponent } from './battle/battle.component';
     NotFoundComponent,
     LookupComponent,
     DateCountPipe,
-    BattleComponent 
+    BattleComponent
   ],
   imports: [
     BrowserModule,

@@ -6,10 +6,10 @@ import { NotFoundComponent } from '../not-found/not-found.component';
 import { LookupComponent } from '../lookup/lookup.component';
 import { BattleComponent } from '../battle/battle.component';
 
-const routes:Routes=[
-  { path:"",component:LookupComponent },
-  { path:"battle",component:BattleComponent },
-  { path:'**',component:NotFoundComponent }
+const routes: Routes = [
+  { path: '', component: LookupComponent },
+  { path: 'battle', component: BattleComponent },
+  { path: '**', component: NotFoundComponent }
 ]
 
 @NgModule({
@@ -17,7 +17,7 @@ const routes:Routes=[
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports:[RouterModule],
+  exports: [RouterModule],
   declarations: []
 })
 export class RoutingModule { }
