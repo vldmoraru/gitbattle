@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
-@Injectable()
+@Injectable({
+   providedIn: 'root',
+})
 export class GithubService {
    private userName = 'vladmorraru';
    private clientId = '3899367101276f5d353a3';
