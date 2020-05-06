@@ -5,7 +5,18 @@
   <meta charset="utf-8">
   <title>Github Battle</title>
   <script type="text/javascript">
-    function empty() {
+    function emptylookup() {
+      var x;
+      x = document.getElementById("inputlookup").value;
+      if (x == "") {
+        alert("Enter a valid username");
+        return false;
+      }
+      else {
+        document.getElementById('showlookup').style.display = 'block';
+      }
+    }
+    function emptybattle() {
       var x, y;
       x = document.getElementById("input").value;
       y = document.getElementById("input2").value;
@@ -18,7 +29,7 @@
         return false;
       }
       else {
-        document.getElementById('show').style.display = 'block';
+        document.getElementById('showbattle').style.display = 'block';
       }
     }
   </script>

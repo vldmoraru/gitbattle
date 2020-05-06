@@ -7,13 +7,13 @@
       <label>Player 2:</label>
       <input type="text" class="form-control" id="input2" placeholder="github username" [(ngModel)]="player2Name"
         name="player2Name">
-      <button type="submit" class="btn btn-success" onclick="empty()">Submit</button>
+      <button type="submit" class="btn btn-success" onclick="emptybattle()">Submit</button>
     </div>
   </form>
 </div>
 <br>
 
-<div id="show">
+<div id="showbattle">
   <div class="topPadding container border" *ngIf="user">
     <div class="card">
       <h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>

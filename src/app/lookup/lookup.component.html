@@ -2,15 +2,15 @@
 	<form (ngSubmit)="findProfile()">
 		<div class="form-group">
 			<label>Search GitHub User Names</label>
-			<input type="text" class="form-control" id="input" placeholder="Search GitHub" [(ngModel)]="userName"
+			<input type="text" class="form-control" id="inputlookup" placeholder="Search GitHub" [(ngModel)]="userName"
 				name="userName">
-			<button type="submit" class="btn btn-success" onclick="empty()">Submit</button>
+			<button type="submit" class="btn btn-success" onclick="emptylookup()">Submit</button>
 		</div>
 	</form>
 </div>
 <br>
 
-<div class="topPadding container border" id="show" *ngIf="user">
+<div class="topPadding container border" id="showlookup" *ngIf="user">
 	<div class="card">
 		<h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
 		<div class="card-body">
