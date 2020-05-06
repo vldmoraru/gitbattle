@@ -34,11 +34,11 @@ export class LookupComponent implements OnInit, OnDestroy {
     this.show = true;
   }
 
-  color = 'primary';
-  mode = 'indeterminate';
-  value = 50;
+  private color: string = 'primary';
+  private mode: string = 'indeterminate';
+  private value: number = 50;
 
-  isLoading: Subject<boolean> = this.loaderService.isLoading;
+  public isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   public ngOnInit() {
     this.githubService.updateUser(this.userName);

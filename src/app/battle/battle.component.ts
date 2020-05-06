@@ -45,7 +45,7 @@ export class BattleComponent implements OnInit, OnDestroy {
   private mode: string = 'indeterminate';
   private value: number = 50;
 
-  private isLoading: Subject<boolean> = this.loaderService.isLoading;
+  public isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   public ngOnInit() {
     this.sub = this.githubService.getUser().subscribe(user => {
