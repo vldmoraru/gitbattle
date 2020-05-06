@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RoutingModule } from './routing.module';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { NgProgressModule } from '@ngx-progressbar/core';
@@ -28,7 +28,7 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     RoutingModule,
-    HttpModule,
+    HttpClientModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
     FormsModule
