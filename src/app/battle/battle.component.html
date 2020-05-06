@@ -38,11 +38,13 @@
   <form class="example-form" name="example-form" (ngSubmit)="findProfile(); findProfile2()">
     <mat-form-field class="example-full-width">
       <mat-label>Player1</mat-label>
-      <input matInput name="input" placeholder="github username" [(ngModel)]="player1Name" name="player1Name" required>
+      <input matInput name="input" placeholder="github username" (ngModelChange)="inputChange()"
+        [(ngModel)]="player1Name" name="player1Name" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Player2</mat-label>
-      <input matInput name="input" placeholder="github username" [(ngModel)]="player2Name" name="player2Name" required>
+      <input matInput name="input" placeholder="github username" (ngModelChange)="inputChange()"
+        [(ngModel)]="player2Name" name="player2Name" required>
     </mat-form-field>
     <button class="button" mat-flat-button color="primary">Submit</button>
   </form>

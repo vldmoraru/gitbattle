@@ -14,6 +14,7 @@ export class LookupComponent implements OnInit, OnDestroy {
   private repos: string[];
   public userName: string;
   public show = false;
+  public count: number;
 
   private sub: Subscription;
   private sub2: Subscription;
@@ -37,6 +38,10 @@ export class LookupComponent implements OnInit, OnDestroy {
     });
 
     this.show = true;
+  }
+
+  public inputChange() {
+    this.show = false;
   }
 
   public ngOnInit() {

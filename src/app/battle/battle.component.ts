@@ -46,6 +46,10 @@ export class BattleComponent implements OnInit, OnDestroy {
     });
   }
 
+  public inputChange() {
+    this.show = false;
+  }
+
   public ngOnInit() {
     this.sub = this.githubService.getUser().subscribe(user => {
       this.user = user;

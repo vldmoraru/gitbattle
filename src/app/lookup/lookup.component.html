@@ -6,7 +6,8 @@
 	<form class="example-form" name="example-form" (ngSubmit)="findProfile()">
 		<mat-form-field class="example-full-width">
 			<mat-label>Search GitHub User Names</mat-label>
-			<input matInput name="input" placeholder="github username" [(ngModel)]="userName" name="userName" required>
+			<input matInput name="input" placeholder="github username" (ngModelChange)="inputChange()" [(ngModel)]="userName"
+				name="userName" required>
 		</mat-form-field>
 		<button class="button" mat-flat-button color="primary">Submit</button>
 	</form>
