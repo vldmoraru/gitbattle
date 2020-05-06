@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'lookup', component: LookupComponent },
   { path: 'battle', component: BattleComponent },
-  { path: '**', component: NotFoundComponent }
-]
+  { path: '**', component: NotFoundComponent },
+];
 
 @NgModule({
   imports: [
