@@ -8,11 +8,7 @@
     function emptylookup() {
       var x;
       x = document.getElementById("inputlookup").value;
-      if (x == "") {
-        alert("Enter a valid username");
-        return false;
-      }
-      else {
+      if (x != "") {
         document.getElementById('showlookup').style.display = 'block';
       }
     }
@@ -41,6 +37,8 @@
     integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css"
     integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>

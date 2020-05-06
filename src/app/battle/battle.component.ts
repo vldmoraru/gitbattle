@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
+import { LoaderService } from '../loader.service';
 
 @Component({
   selector: 'app-battle',
@@ -14,11 +15,12 @@ export class BattleComponent implements OnInit, OnDestroy {
   private score2: number;
   public player1Name: string;
   public player2Name: string;
+  public show: boolean = false;
 
   private sub: Subscription;
   private sub2: Subscription;
 
-  constructor(private githubService: GithubService) {
+  constructor(private githubService: GithubService, private loaderService: LoaderService) {
   }
 
   public findProfile() {
@@ -27,6 +29,8 @@ export class BattleComponent implements OnInit, OnDestroy {
       this.user = user;
       this.score1 = (user.followers + user.public_repos + user.public_gists) * 2;
     });
+
+    this.show = true;
   }
 
   public findProfile2() {
@@ -36,6 +40,12 @@ export class BattleComponent implements OnInit, OnDestroy {
       this.score2 = (user2.followers + user2.public_repos + user2.public_gists) * 2;
     });
   }
+
+  private color: string = 'primary';
+  private mode: string = 'indeterminate';
+  private value: number = 50;
+
+  private isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   public ngOnInit() {
     this.sub = this.githubService.getUser().subscribe(user => {

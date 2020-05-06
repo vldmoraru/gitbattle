@@ -1,16 +1,19 @@
+<div *ngIf="isLoading | async" class="overlay">
+	<mat-progress-spinner class="spinner" [color]="color" [mode]="mode" [value]="value">
+	</mat-progress-spinner>
+</div>
 <div class="border container searchPadding">
-	<form (ngSubmit)="findProfile()">
-		<div class="form-group">
-			<label>Search GitHub User Names</label>
-			<input type="text" class="form-control" id="inputlookup" placeholder="Search GitHub" [(ngModel)]="userName"
-				name="userName">
-			<button type="submit" class="btn btn-success" onclick="emptylookup()">Submit</button>
-		</div>
+	<form class="example-form" name="example-form" (ngSubmit)="findProfile()">
+		<mat-form-field class="example-full-width">
+			<mat-label>Search GitHub User Names</mat-label>
+			<input matInput name="input" placeholder="github username" [(ngModel)]="userName" name="userName" required>
+		</mat-form-field>
+		<button class="button" mat-flat-button color="primary">Submit</button>
 	</form>
 </div>
 <br>
 
-<div class="topPadding container border" id="showlookup" *ngIf="user">
+<div class="topPadding container border" *ngIf="show && userName">
 	<div class="card">
 		<h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
 		<div class="card-body">
@@ -67,4 +70,3 @@
 			</div>
 		</div>
 	</div>
-</div>
