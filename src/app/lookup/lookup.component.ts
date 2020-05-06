@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
 })
 
 export class LookupComponent implements OnInit, OnDestroy {
-  public user: any[];
-  private repos: any[];
+  public user: string[];
+  private repos: string[];
   public userName: string;
 
   private sub: Subscription;

@@ -8,10 +8,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./battle.component.scss']
 })
 export class BattleComponent implements OnInit, OnDestroy {
-  public user: any[];
-  private user2: any[];
-  private score1: any;
-  private score2: any;
+  public user: string[];
+  private user2: string[];
+  private score1: number;
+  private score2: number;
   public player1Name: string;
   public player2Name: string;
 
