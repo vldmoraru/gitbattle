@@ -2,9 +2,9 @@
 	<form (ngSubmit)="findProfile()">
 		<div class="form-group">
 			<label>Search GitHub User Names</label>
-			<input type="text" class="form-control" placeholder="Search GitHub" [(ngModel)]="userName" name="userName">
-			<button type="submit" class="btn btn-success"
-				onclick="document.getElementById('show').style.display = 'block' ;">Submit</button>
+			<input type="text" class="form-control" id="input" placeholder="Search GitHub" [(ngModel)]="userName"
+				name="userName">
+			<button type="submit" class="btn btn-success" onclick="empty()">Submit</button>
 		</div>
 	</form>
 </div>

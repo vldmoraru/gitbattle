@@ -2,13 +2,12 @@
   <form (ngSubmit)="findProfile(); findProfile2()">
     <div class="form-group">
       <label>Player 1:</label>
-      <input type="text" class="form-control" placeholder="github username" [(ngModel)]="player1Name"
+      <input type="text" class="form-control" id="input" placeholder="github username" [(ngModel)]="player1Name"
         name="player1Name">
       <label>Player 2:</label>
-      <input type="text" class="form-control" placeholder="github username" [(ngModel)]="player2Name"
+      <input type="text" class="form-control" id="input2" placeholder="github username" [(ngModel)]="player2Name"
         name="player2Name">
-      <button type="submit" class="btn btn-success"
-        onclick="document.getElementById('show').style.display = 'block' ;">Submit</button>
+      <button type="submit" class="btn btn-success" onclick="empty()">Submit</button>
     </div>
   </form>
 </div>

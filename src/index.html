@@ -4,6 +4,24 @@
 <head>
   <meta charset="utf-8">
   <title>Github Battle</title>
+  <script type="text/javascript">
+    function empty() {
+      var x, y;
+      x = document.getElementById("input").value;
+      y = document.getElementById("input2").value;
+      if (x == "") {
+        alert("Enter Player1 username");
+        return false;
+      }
+      else if (y == "") {
+        alert("Enter Player2 username");
+        return false;
+      }
+      else {
+        document.getElementById('show').style.display = 'block';
+      }
+    }
+  </script>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
