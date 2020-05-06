@@ -13,10 +13,15 @@ export class LookupComponent implements OnInit, OnDestroy {
   public user: string[];
   private repos: string[];
   public userName: string;
-  public show: boolean = false;
+  public show = false;
 
   private sub: Subscription;
   private sub2: Subscription;
+
+  protected color = 'primary';
+  protected mode = 'indeterminate';
+  protected value = 50;
+  public isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   constructor(private githubService: GithubService, private loaderService: LoaderService) {
   }
@@ -33,12 +38,6 @@ export class LookupComponent implements OnInit, OnDestroy {
 
     this.show = true;
   }
-
-  private color: string = 'primary';
-  private mode: string = 'indeterminate';
-  private value: number = 50;
-
-  public isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   public ngOnInit() {
     this.githubService.updateUser(this.userName);

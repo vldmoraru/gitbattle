@@ -15,10 +15,15 @@ export class BattleComponent implements OnInit, OnDestroy {
   private score2: number;
   public player1Name: string;
   public player2Name: string;
-  public show: boolean = false;
+  public show = false;
 
   private sub: Subscription;
   private sub2: Subscription;
+
+  protected color = 'primary';
+  protected mode = 'indeterminate';
+  protected value = 50;
+  public isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   constructor(private githubService: GithubService, private loaderService: LoaderService) {
   }
@@ -40,12 +45,6 @@ export class BattleComponent implements OnInit, OnDestroy {
       this.score2 = (user2.followers + user2.public_repos + user2.public_gists) * 2;
     });
   }
-
-  private color: string = 'primary';
-  private mode: string = 'indeterminate';
-  private value: number = 50;
-
-  public isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   public ngOnInit() {
     this.sub = this.githubService.getUser().subscribe(user => {

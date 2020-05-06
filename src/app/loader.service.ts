@@ -3,11 +3,11 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class LoaderService {
-  isLoading = new Subject<boolean>();
-  show() {
+  public isLoading = new Subject<boolean>();
+  public show() {
     this.isLoading.next(true);
   }
-  hide() {
+  public hide() {
     this.isLoading.next(false);
   }
 }
