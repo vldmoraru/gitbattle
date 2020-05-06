@@ -13,9 +13,9 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 
 import { GithubService } from './github-services/github.service';
-import { LoaderService } from './loader.service';
+import { LoaderService } from './loader-services/loader.service';
 
-import { LoaderInterceptor } from './loader.interceptor';
+import { LoaderInterceptor } from './loader-interceptors/loader.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
 import { Subscription, Subject } from 'rxjs';
-import { LoaderService } from '../loader.service';
+import { LoaderService } from '../loader-services/loader.service';
 
 @Component({
   selector: 'app-battle',
