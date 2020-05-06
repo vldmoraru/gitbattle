@@ -1,17 +1,19 @@
 <div class="border container searchPadding">
   <form (ngSubmit)="findProfile(); findProfile2()">
     <div class="form-group">
-        <label>Player 1:</label>
-        <input type="text" class="form-control" placeholder="github username" [(ngModel)]="player1Name" name="player1Name">
-        <label>Player 2:</label>
-        <input type="text" class="form-control" placeholder="github username" [(ngModel)]="player2Name" name="player2Name">
-        <button type="submit" (click)="show = !show" class="btn btn-success">Submit</button>
+      <label>Player 1:</label>
+      <input type="text" class="form-control" placeholder="github username" [(ngModel)]="player1Name"
+        name="player1Name">
+      <label>Player 2:</label>
+      <input type="text" class="form-control" placeholder="github username" [(ngModel)]="player2Name"
+        name="player2Name">
+      <button type="submit" (click)="show = !show" class="btn btn-success">Submit</button>
     </div>
   </form>
 </div>
 <br>
-  
-<div class= "topPadding container border" *ngIf = "user && show">
+
+<div class="topPadding container border" *ngIf="user && show">
   <div class="card">
     <h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
     <div class="card-body">
@@ -19,7 +21,7 @@
         <div class="col-md-4">
           <img src="{{user.avatar_url}}" class="img-thumbnail img-fluid">
           <hr>
-            <a href="{{user.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a> 
+          <a href="{{user.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a>
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-6">
@@ -42,7 +44,7 @@
     </div>
   </div>
 
-  <div class= "topPadding container border" *ngIf = "user2">
+  <div class="topPadding container border" *ngIf="user2">
     <div class="card">
       <h5 class="card-header">{{user2.name}} <small>({{user2.login}})</small></h5>
       <div class="card-body">
@@ -51,7 +53,7 @@
             <img src="{{user2.avatar_url}}" class="img-thumbnail img-fluid">
             <hr>
 
-            <a href="{{user2.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a> 
+            <a href="{{user2.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a>
           </div>
           <div class="col-md-2"></div>
           <div class="col-md-6">
@@ -77,12 +79,11 @@
 
     <div class="card">
       <h5 class="card-header">Result</h5>
-      <div class="card-body col-md-12" >
+      <div class="card-body col-md-12">
         <h3 class="card-header"><small>Score ({{user.login}}): {{score1}}</small></h3>
         <h3 class="card-header"><small>Score ({{user2.login}}): {{score2}}</small></h3>
-        <h5 class="card-header" *ngIf = "score1 > score2">Winner <small>({{user.login}})</small></h5>
-        <h5 class="card-header" *ngIf = "score1 < score2">Winner <small>({{user2.login}})</small></h5>
+        <h5 class="card-header" *ngIf="score1 > score2">Winner <small>({{user.login}})</small></h5>
+        <h5 class="card-header" *ngIf="score1 < score2">Winner <small>({{user2.login}})</small></h5>
       </div>
     </div>
   </div>
-  
