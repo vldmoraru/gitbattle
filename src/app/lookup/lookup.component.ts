@@ -10,9 +10,9 @@ import { Subscription } from 'rxjs';
 })
 
 export class LookupComponent implements OnInit, OnDestroy {
-  private user: any[];
+  public user: any[];
   private repos: any[];
-  private userName: string;
+  public userName: string;
 
   private sub: Subscription;
   private sub2: Subscription;
@@ -20,7 +20,7 @@ export class LookupComponent implements OnInit, OnDestroy {
   constructor(private githubService: GithubService) {
   }
 
-  private findProfile() {
+  public findProfile() {
     this.githubService.updateUser(this.userName);
     this.sub = this.githubService.getUser().subscribe(user => {
       this.user = user;
@@ -46,8 +46,4 @@ export class LookupComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
     this.sub2.unsubscribe();
   }
-}
-
-export class NgIfSimple {
-  private show: true;
 }

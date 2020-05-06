@@ -3,13 +3,13 @@
 		<div class="form-group">
 			<label>Search GitHub User Names</label>
 			<input type="text" class="form-control" placeholder="Search GitHub" [(ngModel)]="userName" name="userName">
-			<button type="submit" (click)="show = !show" class="btn btn-success">Submit</button>
+			<button type="submit" class="btn btn-success">Submit</button>
 		</div>
 	</form>
 </div>
 <br>
 
-<div class="topPadding container border" *ngIf="user && show">
+<div class="topPadding container border" *ngIf="user">
 	<div class="card">
 		<h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
 		<div class="card-body">

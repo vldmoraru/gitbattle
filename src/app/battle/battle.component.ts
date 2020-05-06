@@ -9,12 +9,12 @@ import { Subscription } from 'rxjs';
   providers: [GithubService]
 })
 export class BattleComponent implements OnInit, OnDestroy {
-  private user: any[];
+  public user: any[];
   private user2: any[];
   private score1: any;
   private score2: any;
-  private player1Name: string;
-  private player2Name: string;
+  public player1Name: string;
+  public player2Name: string;
 
   private sub: Subscription;
   private sub2: Subscription;
@@ -22,7 +22,7 @@ export class BattleComponent implements OnInit, OnDestroy {
   constructor(private githubService: GithubService) {
   }
 
-  private findProfile() {
+  public findProfile() {
     this.githubService.updateUser(this.player1Name);
     this.sub = this.githubService.getUser().subscribe(user => {
       this.user = user;
@@ -30,7 +30,7 @@ export class BattleComponent implements OnInit, OnDestroy {
     });
   }
 
-  private findProfile2() {
+  public findProfile2() {
     this.githubService.updateUser(this.player2Name);
     this.sub2 = this.githubService.getUser().subscribe(user2 => {
       this.user2 = user2;
@@ -52,8 +52,4 @@ export class BattleComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
     this.sub2.unsubscribe();
   }
-}
-
-export class NgIfSimple {
-  private show: true;
 }
