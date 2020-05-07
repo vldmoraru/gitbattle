@@ -12,7 +12,7 @@
     :clap::clap::tada::tada::tada::tada::clap::clap:
     <br>
     <br>
-    Base project made with much :heart:.
+    Project made with much :heart:.
     <br>
     <br>
     <a href="https://vibrant-cori-06b9bd.netlify.app/">LIVE DEMO</a>
