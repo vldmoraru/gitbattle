@@ -51,14 +51,25 @@
 </div>
 <br>
 
-<div class="topPadding container border" *ngIf="show && player1Name && player2Name">
+<div class="topPadding container border" *ngIf="show && (!user || !user2) && player1Name && player2Name">
+  <h5 class="notfound">User(s) not found.</h5>
+</div>
+
+<div class="topPadding container border" *ngIf="show && user && user2 && player1Name && player2Name">
   <div class="card">
-    <h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
+    <h5 class="card-header" *ngIf="score1 > score2">{{user.name}} <small>({{user.login}})</small>
+      <h5 class="header-lg center-text">Winner</h5>
+    </h5>
+    <h5 class="card-header" *ngIf="score1 < score2">{{user.name}} <small>({{user.login}})</small>
+      <h5 class="header-lg center-text">Loser</h5>
+    </h5>
     <div class="card-body">
       <div class="row">
         <div class="col-md-4">
           <img src="{{user.avatar_url}}" class="img-thumbnail img-fluid">
           <hr>
+
+          <h3 class="card-header"><small>Score: {{score1}}</small></h3>
           <a href="{{user.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a>
         </div>
         <div class="col-md-2"></div>
@@ -84,13 +95,19 @@
 
   <div class="topPadding container border" *ngIf="show && player1Name && player2Name">
     <div class="card">
-      <h5 class="card-header">{{user2.name}} <small>({{user2.login}})</small></h5>
+      <h5 class="card-header" *ngIf="score1 < score2">{{user2.name}} <small>({{user2.login}})</small>
+        <h5 class="header-lg center-text">Winner</h5>
+      </h5>
+      <h5 class="card-header" *ngIf="score1 > score2">{{user2.name}} <small>({{user2.login}})</small>
+        <h5 class="header-lg center-text">Loser</h5>
+      </h5>
       <div class="card-body">
         <div class="row">
           <div class="col-md-4">
             <img src="{{user2.avatar_url}}" class="img-thumbnail img-fluid">
             <hr>
 
+            <h3 class="card-header"><small>Score: {{score2}}</small></h3>
             <a href="{{user2.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a>
           </div>
           <div class="col-md-2"></div>
@@ -111,17 +128,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <hr>
-
-    <div class="card">
-      <h5 class="card-header">Result</h5>
-      <div class="card-body col-md-12">
-        <h3 class="card-header"><small>Score ({{user.login}}): {{score1}}</small></h3>
-        <h3 class="card-header"><small>Score ({{user2.login}}): {{score2}}</small></h3>
-        <h5 class="card-header" *ngIf="score1 > score2">Winner <small>({{user.login}})</small></h5>
-        <h5 class="card-header" *ngIf="score1 < score2">Winner <small>({{user2.login}})</small></h5>
       </div>
     </div>
   </div>

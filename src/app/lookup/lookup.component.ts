@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
 import { Subscription, Subject } from 'rxjs';
 import { LoaderService } from '../loader-services/loader.service';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-lookup',
@@ -11,10 +12,9 @@ import { LoaderService } from '../loader-services/loader.service';
 
 export class LookupComponent implements OnInit, OnDestroy {
   public user: string[];
-  private repos: string[];
+  private repos: any[];
   public userName: string;
   public show = false;
-  public count: number;
 
   private sub: Subscription;
   private sub2: Subscription;
@@ -42,6 +42,7 @@ export class LookupComponent implements OnInit, OnDestroy {
 
   public inputChange() {
     this.show = false;
+    this.user = null;
   }
 
   public ngOnInit() {
