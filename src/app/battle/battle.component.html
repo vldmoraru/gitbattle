@@ -35,18 +35,19 @@
       </li>
     </ol>
   </div>
-  <form class="example-form" name="example-form" (ngSubmit)="findProfile(); findProfile2()">
+  <form class="example-form" name="example-form" (keydown.enter)="prevent($event)">
     <mat-form-field class="example-full-width">
       <mat-label>Player1</mat-label>
-      <input matInput name="input" placeholder="github username" (ngModelChange)="inputChange()"
+      <input matInput name="input" placeholder="github username" (keyup)="input1Change($event)"
         [(ngModel)]="player1Name" name="player1Name" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Player2</mat-label>
-      <input matInput name="input" placeholder="github username" (ngModelChange)="inputChange()"
+      <input matInput name="input" placeholder="github username" (keyup)="input2Change($event)"
         [(ngModel)]="player2Name" name="player2Name" required>
     </mat-form-field>
-    <button class="button" mat-flat-button color="primary">Submit</button>
+    <button class="button" mat-flat-button color="primary" (click)="findProfile(); findProfile2()"
+      [disabled]="noInput1 || noInput2">Submit</button>
   </form>
 </div>
 <br>

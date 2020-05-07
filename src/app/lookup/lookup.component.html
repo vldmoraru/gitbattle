@@ -3,13 +3,13 @@
 	</mat-progress-spinner>
 </div>
 <div class="border container searchPadding">
-	<form class="example-form" name="example-form" (ngSubmit)="findProfile()">
+	<form class="example-form" name="example-form" (keydown.enter)="prevent($event)">
 		<mat-form-field class="example-full-width">
-			<mat-label>Search GitHub User Names</mat-label>
-			<input matInput name="input" placeholder="github username" (ngModelChange)="inputChange()" [(ngModel)]="userName"
+			<mat-label>Type Username</mat-label>
+			<input matInput name="input" placeholder="github username" (keyup)="inputChange($event)" [(ngModel)]="userName"
 				name="userName" required>
 		</mat-form-field>
-		<button class="button" mat-flat-button color="primary">Submit</button>
+		<button class="button" mat-flat-button color="primary" (click)="findProfile()" [disabled]="noInput">Submit</button>
 	</form>
 </div>
 <br>

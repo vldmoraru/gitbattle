@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
 import { Subscription, Subject } from 'rxjs';
 import { LoaderService } from '../loader-services/loader.service';
-import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-lookup',
@@ -11,14 +10,15 @@ import { NgForOf } from '@angular/common';
 })
 
 export class LookupComponent implements OnInit, OnDestroy {
+
   public user: string[];
   private repos: string[];
   public userName: string;
   public show = false;
-
+  protected values = '';
+  public noInput = true;
   private sub: Subscription;
   private sub2: Subscription;
-
   protected color = 'primary';
   protected mode = 'indeterminate';
   protected value = 50;
@@ -40,9 +40,19 @@ export class LookupComponent implements OnInit, OnDestroy {
     this.show = true;
   }
 
-  public inputChange() {
+  public inputChange(event: any) {
+    this.values = event.target.value;
     this.show = false;
     this.user = null;
+    if (this.values === '') {
+      this.noInput = true;
+    } else {
+      this.noInput = false;
+    }
+  }
+
+  public prevent(event) {
+    event.preventDefault();
   }
 
   public ngOnInit() {

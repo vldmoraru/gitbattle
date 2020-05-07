@@ -9,7 +9,6 @@ import { BattleComponent } from './battle/battle.component';
 const routes: Routes = [
   { path: '', component: BattleComponent },
   { path: 'lookup', component: LookupComponent },
-  { path: 'battle', component: BattleComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
