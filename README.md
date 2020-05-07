@@ -1,27 +1,63 @@
-# Github Battle
+<p align="center">
+  <a href="https://angular.io/">
+    <img src="https://www.angularexampleapp.com/assets/images/angular.svg" alt="Logo" width=72 height=72>
+  </a>
 
-This project was generated with [Angular CLI].
+  <h3 align="center">Github Battle App</h3>
 
-## Development server
+  <p align="center">
+    Github battle app with Angular 9
+    <br>
+    <br>
+    :clap::clap::tada::tada::tada::tada::clap::clap:
+    <br>
+    <br>
+    Base project made with much :heart:.
+    <br>
+    <br>
+    <a href="https://vibrant-cori-06b9bd.netlify.app/">LIVE DEMO</a>
+    <br>
+    <a href="https://vibrant-cori-06b9bd.netlify.app/">
+      <img src="https://media.giphy.com/media/jt9sqnqsZnVRQpvbsi/giphy.gif" alt="Demo example"/>
+    </a>
+    <br>
+    <br>
+    <a href="https://github.com/vladmorraru/gitbattle-v9/issues/new">Report bug</a>
+    ·
+    <a href="https://github.com/vladmorraru/gitbattle-v9/issues/new">Request feature</a>
+  </p>
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Status
 
-## Code scaffolding
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vladmorraru_gitbattle-v9&metric=alert_status)](https://sonarcloud.io/dashboard?id=vladmorraru_gitbattle-v9)
+[![dependency Status](https://david-dm.org/vladmorraru/gitbattle-v9.svg)](https://david-dm.org/vladmorraru/gitbattle-v9#info=dependencies)
+[![devDependency Status](https://david-dm.org/vladmorraru/gitbattle-v9/dev-status.svg)](https://david-dm.org/vladmorraru/gitbattle-v9/#info=devDependencies)
+[![peerDependencies Status](https://david-dm.org/vladmorraru/gitbattle-v9/peer-status.svg)](https://david-dm.org/vladmorraru/gitbattle-v9?type=peer)
+[![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://vibrant-cori-06b9bd.netlify.app/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[![GitHub stars](https://img.shields.io/github/stars/vladmorraru/gitbattle-v9.svg?style=social&label=Star)](https://github.com/vladmorraru/gitbattle-v9)
+[![GitHub forks](https://img.shields.io/github/forks/vladmorraru/gitbattle-v9.svg?style=social&label=Fork)](https://github.com/vladmorraru/gitbattle-v9/fork)
 
-## Build
+## Quick start
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ ```bash
+ git clone https://github.com/vladmorraru/gitbattle-v9.git 
+ cd gitbattle-v9/
+ npm i
+ ng serve
+ ```
 
-## Running unit tests
+## Bugs and feature requests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Have a bug or a feature request? [Please open a new issue](https://github.com/vladmorraru/gitbattle-v9/issues/new).
 
-## Running end-to-end tests
+## Creators
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+**Vlad Moraru**
 
-## Further help
+- <https://github.com/vladmorraru>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<a href="https://www.buymeacoffee.com/ismaestro" target="_blank"><img src="http://i65.tinypic.com/2rx8kn8.jpg" border="0" alt="Buy Me A Coffee"></a>
+
+Enjoy :metal:
