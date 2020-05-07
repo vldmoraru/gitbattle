@@ -58,6 +58,6 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/vl
 
 - <https://github.com/vladmorraru>
 
-<a href="https://www.buymeacoffee.com/ismaestro" target="_blank"><img src="http://i65.tinypic.com/2rx8kn8.jpg" border="0" alt="Buy Me A Coffee"></a>
+<a href="https://github.com/vladmorraru" target="_blank"><img src="https://media.giphy.com/media/j3iAl8ayoNtSXubIMB/giphy.gif" border="0" alt="avatar"></a>
 
 Enjoy :metal:
