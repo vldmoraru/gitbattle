@@ -87,6 +87,8 @@ export class BattleComponent implements OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }
