@@ -31,9 +31,6 @@
 ## Status
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vladmorraru_gitbattle-v9&metric=alert_status)](https://sonarcloud.io/dashboard?id=vladmorraru_gitbattle-v9)
-[![dependency Status](https://david-dm.org/vladmorraru/gitbattle-v9.svg)](https://david-dm.org/vladmorraru/gitbattle-v9#info=dependencies)
-[![devDependency Status](https://david-dm.org/vladmorraru/gitbattle-v9/dev-status.svg)](https://david-dm.org/vladmorraru/gitbattle-v9/#info=devDependencies)
-[![peerDependencies Status](https://david-dm.org/vladmorraru/gitbattle-v9/peer-status.svg)](https://david-dm.org/vladmorraru/gitbattle-v9?type=peer)
 [![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://vibrant-cori-06b9bd.netlify.app/)
 
 [![GitHub stars](https://img.shields.io/github/stars/vladmorraru/gitbattle-v9.svg?style=social&label=Star)](https://github.com/vladmorraru/gitbattle-v9/stargazers)
