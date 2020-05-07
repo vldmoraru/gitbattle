@@ -17,7 +17,7 @@ export class LookupComponent implements OnDestroy {
   public show = false;
   protected values = '';
   public noInput = true;
-  private sub: Subscription;
+  private subscription: Subscription = new Subscription();
   protected color = 'primary';
   protected mode = 'indeterminate';
   protected value = 50;
@@ -28,11 +28,11 @@ export class LookupComponent implements OnDestroy {
 
   public findProfile() {
     this.githubService.updateUser(this.userName);
-    this.sub = this.githubService.getUser().subscribe(user => {
+    this.subscription = this.githubService.getUser().subscribe(user => {
       this.user = user;
     });
 
-    this.sub = this.githubService.getRepos().subscribe(repos => {
+    this.subscription = this.githubService.getRepos().subscribe(repos => {
       this.repos = repos;
     });
 
@@ -55,8 +55,8 @@ export class LookupComponent implements OnDestroy {
   }
 
   public ngOnDestroy() {
-    if (this.sub) {
-      this.sub.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }

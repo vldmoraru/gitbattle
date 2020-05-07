@@ -14,11 +14,11 @@
 </div>
 <br>
 
-<div class="topPadding container border" *ngIf="show && !user && userName">
+<div class="container border" *ngIf="show && !user">
 	<h5 class="notfound">User not found.</h5>
 </div>
 
-<div class="topPadding container border" *ngIf="show && user && userName">
+<div class="container border" *ngIf="show && user">
 	<div class="card">
 		<h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
 		<div class="card-body">

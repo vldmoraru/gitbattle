@@ -52,11 +52,11 @@
 </div>
 <br>
 
-<div class="topPadding container border" *ngIf="show && (!user || !user2) && player1Name && player2Name">
+<div class="container border" *ngIf="show && (!user || !user2)">
   <h5 class="notfound">User(s) not found.</h5>
 </div>
 
-<div class="topPadding container border" *ngIf="show && user && user2 && player1Name && player2Name">
+<div class="container border" *ngIf="show && user && user2">
   <div class="card">
     <h5 class="card-header" *ngIf="score1 > score2">{{user.name}} <small>({{user.login}})</small>
       <h5 class="header-lg center-text">Winner
@@ -101,7 +101,7 @@
     </div>
   </div>
 
-  <div class="topPadding container border" *ngIf="show && player1Name && player2Name">
+  <div class="container border" *ngIf="show && user2">
     <div class="card">
       <h5 class="card-header" *ngIf="score1 < score2">{{user2.name}} <small>({{user2.login}})</small>
         <h5 class="header-lg center-text">Winner

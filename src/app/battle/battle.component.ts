@@ -21,7 +21,7 @@ export class BattleComponent implements OnDestroy {
   protected values = '';
   public noInput1 = true;
   public noInput2 = true;
-  private sub: Subscription;
+  private subscription: Subscription = new Subscription();
   protected color = 'primary';
   protected mode = 'indeterminate';
   protected value = 50;
@@ -32,11 +32,11 @@ export class BattleComponent implements OnDestroy {
 
   public findProfiles() {
     this.githubService.updateUser(this.player1Name);
-    this.sub = this.githubService.getUser().subscribe(user => {
+    this.subscription = this.githubService.getUser().subscribe(user => {
       this.user = user;
       this.score1 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
     });
-    this.sub = this.githubService.getRepos().subscribe(repos => {
+    this.subscription = this.githubService.getRepos().subscribe(repos => {
       this.repos = repos;
       for (const repo of repos) {
         this.score1 += repo.forks_count;
@@ -44,11 +44,11 @@ export class BattleComponent implements OnDestroy {
     });
 
     this.githubService.updateUser(this.player2Name);
-    this.sub = this.githubService.getUser().subscribe(user => {
+    this.subscription = this.githubService.getUser().subscribe(user => {
       this.user2 = user;
       this.score2 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
     });
-    this.sub = this.githubService.getRepos().subscribe(repos => {
+    this.subscription = this.githubService.getRepos().subscribe(repos => {
       this.repos = repos;
       for (const repo of repos) {
         this.score2 += repo.forks_count;
@@ -87,8 +87,8 @@ export class BattleComponent implements OnDestroy {
   }
 
   public ngOnDestroy() {
-    if (this.sub) {
-      this.sub.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }
