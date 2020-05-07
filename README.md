@@ -36,7 +36,7 @@
 [![peerDependencies Status](https://david-dm.org/vladmorraru/gitbattle-v9/peer-status.svg)](https://david-dm.org/vladmorraru/gitbattle-v9?type=peer)
 [![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://vibrant-cori-06b9bd.netlify.app/)
 
-[![GitHub stars](https://img.shields.io/github/stars/vladmorraru/gitbattle-v9.svg?style=social&label=Star)](https://github.com/vladmorraru/gitbattle-v9)
+[![GitHub stars](https://img.shields.io/github/stars/vladmorraru/gitbattle-v9.svg?style=social&label=Star)](https://github.com/vladmorraru/gitbattle-v9/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/vladmorraru/gitbattle-v9.svg?style=social&label=Fork)](https://github.com/vladmorraru/gitbattle-v9/fork)
 
 ## Quick start
