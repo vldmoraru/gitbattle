@@ -12,7 +12,7 @@ import { NgForOf } from '@angular/common';
 
 export class LookupComponent implements OnInit, OnDestroy {
   public user: string[];
-  private repos: any[];
+  private repos: string[];
   public userName: string;
   public show = false;
 

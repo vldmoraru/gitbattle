@@ -19,7 +19,7 @@ export class BattleComponent implements OnInit, OnDestroy {
   public player1Name: string;
   public player2Name: string;
   public show = false;
-  public countforks: number;
+  private countforks: number;
 
   private sub: Subscription;
   private sub2: Subscription;
