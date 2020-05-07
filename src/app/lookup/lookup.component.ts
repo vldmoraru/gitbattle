@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
 import { Subscription, Subject } from 'rxjs';
 import { LoaderService } from '../loader-services/loader.service';
@@ -9,7 +9,7 @@ import { LoaderService } from '../loader-services/loader.service';
   styleUrls: ['./lookup.component.scss']
 })
 
-export class LookupComponent implements OnInit, OnDestroy {
+export class LookupComponent implements OnDestroy {
 
   public user: string[];
   private repos: string[];
@@ -18,7 +18,6 @@ export class LookupComponent implements OnInit, OnDestroy {
   protected values = '';
   public noInput = true;
   private sub: Subscription;
-  private sub2: Subscription;
   protected color = 'primary';
   protected mode = 'indeterminate';
   protected value = 50;
@@ -33,7 +32,7 @@ export class LookupComponent implements OnInit, OnDestroy {
       this.user = user;
     });
 
-    this.sub2 = this.githubService.getRepos().subscribe(repos => {
+    this.sub = this.githubService.getRepos().subscribe(repos => {
       this.repos = repos;
     });
 
@@ -55,19 +54,7 @@ export class LookupComponent implements OnInit, OnDestroy {
     event.preventDefault();
   }
 
-  public ngOnInit() {
-    this.githubService.updateUser(this.userName);
-    this.sub = this.githubService.getUser().subscribe(user => {
-      this.user = user;
-    });
-
-    this.sub2 = this.githubService.getRepos().subscribe(repos => {
-      this.repos = repos;
-    });
-  }
-
   public ngOnDestroy() {
     this.sub.unsubscribe();
-    this.sub2.unsubscribe();
   }
 }

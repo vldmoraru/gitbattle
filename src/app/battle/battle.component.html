@@ -46,7 +46,7 @@
       <input matInput name="input" placeholder="github username" (keyup)="input2Change($event)"
         [(ngModel)]="player2Name" name="player2Name" required>
     </mat-form-field>
-    <button class="button" mat-flat-button color="primary" (click)="findProfile(); findProfile2()"
+    <button class="button" mat-flat-button color="primary" (click)="findProfiles()"
       [disabled]="noInput1 || noInput2">Submit</button>
   </form>
 </div>
