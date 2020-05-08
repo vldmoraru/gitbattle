@@ -11,6 +11,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
+import { InlineSVGModule } from 'ng-inline-svg';
 
 import { GithubService } from './github-services/github.service';
 import { LoaderService } from './loader-services/loader.service';
@@ -45,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    InlineSVGModule
   ],
   providers: [
     GithubService,

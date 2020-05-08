@@ -2,6 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
 import { Subscription, Subject } from 'rxjs';
 import { LoaderService } from '../loader-services/loader.service';
+import { Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-battle',
@@ -18,75 +20,72 @@ export class BattleComponent implements OnDestroy {
   public player1Name: string;
   public player2Name: string;
   public show = false;
-  protected values = '';
-  public noInput1 = true;
-  public noInput2 = true;
   private subscription: Subscription = new Subscription();
-  protected color = 'primary';
-  protected mode = 'indeterminate';
-  protected value = 50;
+  public playerForm: FormGroup;
+
   public isLoading: Subject<boolean> = this.loaderService.isLoading;
 
-  constructor(private githubService: GithubService, private loaderService: LoaderService) {
+  constructor(private formBuilder: FormBuilder, private githubService: GithubService, private loaderService: LoaderService) {
+    this.createPlayerForm();
+  }
+
+  private createPlayerForm() {
+    this.playerForm = this.formBuilder.group({
+      player1Name: ['', Validators.required],
+      player2Name: ['', Validators.required]
+    });
+  }
+
+  public ngOnDestroy() {
+    this.clearSubscriptions();
   }
 
   public findProfiles(): void {
+    this.clearSubscriptions();
+
     this.githubService.updateUser(this.player1Name);
-    this.subscription = this.githubService.getUser().subscribe(user => {
-      this.user = user;
-      this.score1 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
-    });
-    this.subscription = this.githubService.getRepos().subscribe(repos => {
-      this.repos = repos;
-      for (const repo of repos) {
-        this.score1 += repo.forks_count;
-      }
-    });
+    this.subscription.add(
+      this.githubService.getUser().subscribe(user => {
+        this.user = user;
+        this.score1 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
+      })
+    );
+    this.subscription.add(
+      this.githubService.getRepos().subscribe(repos => {
+        this.repos = repos;
+        for (const repo of repos) {
+          this.score1 += repo.forks_count;
+        }
+      })
+    );
 
     this.githubService.updateUser(this.player2Name);
-    this.subscription = this.githubService.getUser().subscribe(user => {
-      this.user2 = user;
-      this.score2 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
-    });
-    this.subscription = this.githubService.getRepos().subscribe(repos => {
-      this.repos = repos;
-      for (const repo of repos) {
-        this.score2 += repo.forks_count;
-      }
-    });
+    this.subscription.add(
+      this.githubService.getUser().subscribe(user => {
+        this.user2 = user;
+        this.score2 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
+      })
+    );
+    this.subscription.add(
+      this.githubService.getRepos().subscribe(repos => {
+        this.repos = repos;
+        for (const repo of repos) {
+          this.score2 += repo.forks_count;
+        }
+      })
+    );
 
     this.show = true;
   }
 
-  public input1Change(event: any) {
-    this.values = event.target.value;
-    if (this.values === '') {
-      this.noInput1 = true;
-    } else {
-      this.noInput1 = false;
-    }
-  }
-
-  public input2Change(event: any) {
-    this.values = event.target.value;
-    if (this.values === '') {
-      this.noInput2 = true;
-    } else {
-      this.noInput2 = false;
-    }
-  }
-
-  public prevent(event) {
-    event.preventDefault();
-  }
-
-  public refresh(): void {
-    window.location.reload();
-  }
-
-  public ngOnDestroy() {
-    if (this.subscription) {
+  private clearSubscriptions(): void {
+    if (this.subscription.closed) {
       this.subscription.unsubscribe();
     }
+  }
+
+  public resetForm(): void {
+    this.playerForm.reset();
+    this.show = false;
   }
 }

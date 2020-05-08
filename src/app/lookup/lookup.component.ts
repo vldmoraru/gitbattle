@@ -2,6 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { GithubService } from '../github-services/github.service';
 import { Subscription, Subject } from 'rxjs';
 import { LoaderService } from '../loader-services/loader.service';
+import { Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-lookup',
@@ -15,50 +17,51 @@ export class LookupComponent implements OnDestroy {
   private repos: string[];
   public userName: string;
   public show = false;
-  protected values = '';
-  public noInput = true;
   private subscription: Subscription = new Subscription();
-  protected color = 'primary';
-  protected mode = 'indeterminate';
-  protected value = 50;
   public isLoading: Subject<boolean> = this.loaderService.isLoading;
+  public userForm: FormGroup;
 
-  constructor(private githubService: GithubService, private loaderService: LoaderService) {
+  constructor(private formBuilder: FormBuilder, private githubService: GithubService, private loaderService: LoaderService) {
+    this.createUserForm();
   }
 
-  public findProfile(): void {
-    this.githubService.updateUser(this.userName);
-    this.subscription = this.githubService.getUser().subscribe(user => {
-      this.user = user;
+  private createUserForm() {
+    this.userForm = this.formBuilder.group({
+      userName: ['', Validators.required]
     });
-
-    this.subscription = this.githubService.getRepos().subscribe(repos => {
-      this.repos = repos;
-    });
-
-    this.show = true;
-  }
-
-  public inputChange(event: any) {
-    this.values = event.target.value;
-    if (this.values === '') {
-      this.noInput = true;
-    } else {
-      this.noInput = false;
-    }
-  }
-
-  public prevent(event) {
-    event.preventDefault();
-  }
-
-  public refresh(): void {
-    window.location.reload();
   }
 
   public ngOnDestroy() {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+  public findProfile(): void {
+    this.githubService.updateUser(this.userName);
+    this.subscription.add(
+      this.githubService.getUser().subscribe(user => {
+        this.user = user;
+      })
+    );
+
+    this.subscription.add(
+      this.githubService.getRepos().subscribe(repos => {
+        this.repos = repos;
+      })
+    );
+
+    this.show = true;
+  }
+
+  private clearSubscriptions(): void {
+    if (this.subscription.closed) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  public resetForm(): void {
+    this.userForm.reset();
+    this.show = false;
   }
 }

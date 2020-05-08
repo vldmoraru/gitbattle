@@ -1,18 +1,17 @@
 <div *ngIf="isLoading | async" class="overlay">
-	<mat-progress-spinner class="spinner" [color]="color" [mode]="mode" [value]="value">
+	<mat-progress-spinner class="spinner" [color]="primary" [mode]="indeterminate" [value]="50">
 	</mat-progress-spinner>
 </div>
 <div class="border container searchPadding">
-	<form class="example-form" name="example-form" (keydown.enter)="prevent($event)">
+	<form class="example-form" name="example-form" [formGroup]="userForm" (ngSubmit)="findProfile()">
 		<mat-form-field class="example-full-width">
-			<mat-label>Type Username</mat-label>
-			<input matInput name="input" placeholder="github username" (keyup)="inputChange($event)" [(ngModel)]="userName"
-				name="userName" [disabled]="show" required>
+			<mat-label>Type username</mat-label>
+			<input matInput name="input" formControlName="userName" placeholder="github username" [(ngModel)]="userName"
+				required>
 		</mat-form-field>
-		<button class="button" mat-flat-button color="primary" (click)="findProfile()" *ngIf="!show"
-			[disabled]="noInput">Submit</button>
-		<button class="button" mat-flat-button color="primary" (click)="refresh()" *ngIf="show">Reset</button>
+		<button class="button" mat-flat-button color="primary" [disabled]="!userForm.valid" *ngIf="!show">Submit</button>
 	</form>
+	<button class="button" mat-flat-button color="primary" (click)="resetForm()" *ngIf="show">Reset </button>
 </div>
 <br>
 
