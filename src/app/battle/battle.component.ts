@@ -22,7 +22,6 @@ export class BattleComponent implements OnDestroy {
   public noInput1 = true;
   public noInput2 = true;
   private subscription: Subscription = new Subscription();
-  private subscription2: Subscription = new Subscription();
   protected color = 'primary';
   protected mode = 'indeterminate';
   protected value = 50;
@@ -42,20 +41,18 @@ export class BattleComponent implements OnDestroy {
       for (const repo of repos) {
         this.score1 += repo.forks_count;
       }
-      this.subscription.unsubscribe();
     });
 
     this.githubService.updateUser(this.player2Name);
-    this.subscription2 = this.githubService.getUser().subscribe(user => {
+    this.subscription = this.githubService.getUser().subscribe(user => {
       this.user2 = user;
       this.score2 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
     });
-    this.subscription2 = this.githubService.getRepos().subscribe(repos => {
+    this.subscription = this.githubService.getRepos().subscribe(repos => {
       this.repos = repos;
       for (const repo of repos) {
         this.score2 += repo.forks_count;
       }
-      this.subscription2.unsubscribe();
     });
 
     this.show = true;
@@ -92,10 +89,6 @@ export class BattleComponent implements OnDestroy {
   public ngOnDestroy() {
     if (this.subscription) {
       this.subscription.unsubscribe();
-    }
-
-    if (this.subscription2) {
-      this.subscription2.unsubscribe();
     }
   }
 }
