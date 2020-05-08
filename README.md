@@ -16,6 +16,7 @@
     <br>
     <br>
     <a href="https://vibrant-cori-06b9bd.netlify.app/">LIVE DEMO NETLIFY</a>
+    <br>
     <a href="https://vladmorraru.github.io/gitbattle-v9/gitbattle-v9/">LIVE DEMO GITHUB</a>
     <br>
     <a href="https://vibrant-cori-06b9bd.netlify.app/">
