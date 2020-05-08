@@ -15,7 +15,8 @@
     Project made with much :heart:.
     <br>
     <br>
-    <a href="https://vibrant-cori-06b9bd.netlify.app/">LIVE DEMO</a>
+    <a href="https://vibrant-cori-06b9bd.netlify.app/">LIVE DEMO NETLIFY</a>
+    <a href="https://vladmorraru.github.io/gitbattle-v9/gitbattle-v9/">LIVE DEMO GITHUB</a>
     <br>
     <a href="https://vibrant-cori-06b9bd.netlify.app/">
       <img src="https://media.giphy.com/media/SXs42ME29230fGzKwi/giphy.gif" alt="Demo example"/>
