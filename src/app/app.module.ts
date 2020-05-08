@@ -22,7 +22,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LookupComponent } from './lookup/lookup.component';
-import { DateCountPipe } from './date-count.pipe';
 import { BattleComponent } from './battle/battle.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreComponent } from './core/core.component';
@@ -32,7 +31,6 @@ import { CoreComponent } from './core/core.component';
     AppComponent,
     NotFoundComponent,
     LookupComponent,
-    DateCountPipe,
     BattleComponent,
     CoreComponent
   ],
