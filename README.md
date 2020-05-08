@@ -19,7 +19,7 @@
     <br>
     <a href="https://vladmorraru.github.io/gitbattle-v9/gitbattle-v9/">LIVE DEMO GITHUB</a>
     <br>
-    (for some reason the path from github deployment path is incorrect but I don't now why :cry:.)
+    (for some reason the launch path from github deployment is incorrect but I don't now why :cry:.)
     <br>
     <a href="https://vibrant-cori-06b9bd.netlify.app/">
       <img src="https://media.giphy.com/media/SXs42ME29230fGzKwi/giphy.gif" alt="Demo example"/>
