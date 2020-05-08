@@ -59,6 +59,7 @@ export class BattleComponent implements OnDestroy {
       })
     );
 
+    this.clearSubscriptions();
     this.githubService.updateUser(this.player2Name);
     this.subscription.add(
       this.githubService.getUser().subscribe(user => {
