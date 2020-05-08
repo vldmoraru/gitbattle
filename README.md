@@ -39,8 +39,8 @@
 ## Quick start
 
  ```bash
- git clone https://github.com/vladmorraru/gitbattle-v9.git 
- cd gitbattle-v9/
+ git clone https://github.com/vladmorraru/gitbattle-v9.git gitbattle
+ cd gitbattle/
  npm i
  ng serve
  ```
