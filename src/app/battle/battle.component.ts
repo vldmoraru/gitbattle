@@ -19,7 +19,7 @@ export class BattleComponent implements OnDestroy {
   private score2: number;
   public player1Name: string;
   public player2Name: string;
-  public show = false;
+  public show: boolean = false;
   private subscription: Subscription = new Subscription();
   public playerForm: FormGroup;
 
