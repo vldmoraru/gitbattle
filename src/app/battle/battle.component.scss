@@ -61,7 +61,7 @@ li{
   border-radius: 3px;
 }
 
-.battle-instructions svg{
+span ::ng-deep svg {
   padding: 40px;
   border-radius: 3px;
 }
@@ -89,4 +89,8 @@ li{
 
 .badge {
   margin-right: 6px;
+}
+
+.img-thumbnail {
+  border-radius: 50%;
 }

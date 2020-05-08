@@ -49,7 +49,7 @@ import { CoreComponent } from './core/core.component';
     MatInputModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    InlineSVGModule
+    InlineSVGModule.forRoot()
   ],
   providers: [
     GithubService,
