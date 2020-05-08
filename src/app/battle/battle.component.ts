@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
-import { GithubService } from '../github-services/github.service';
+import { GithubService } from '../services/github-service/github.service';
 import { Subscription, Subject } from 'rxjs';
-import { LoaderService } from '../loader-services/loader.service';
+import { LoaderService } from '../services/loader-service/loader.service';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
@@ -74,7 +74,9 @@ export class BattleComponent implements OnDestroy {
         }
       })
     );
-
+    
+    this.playerForm.controls['player1Name'].disable();
+    this.playerForm.controls['player2Name'].disable();
     this.show = true;
   }
 
@@ -86,6 +88,8 @@ export class BattleComponent implements OnDestroy {
 
   public resetForm(): void {
     this.playerForm.reset();
+    this.playerForm.controls['player1Name'].enable();
+    this.playerForm.controls['player2Name'].enable();
     this.show = false;
   }
 }

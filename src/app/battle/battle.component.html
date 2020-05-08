@@ -35,7 +35,7 @@
       </li>
     </ol>
   </div>
-  <form class="example-form" name="example-form" [formGroup]="playerForm" (ngSubmit)="findProfiles()" *ngIf="!show">
+  <form class="example-form" name="example-form" [formGroup]="playerForm" (ngSubmit)="findProfiles()">
     <mat-form-field class="example-full-width">
       <mat-label>Player1</mat-label>
       <input matInput name="input" formControlName="player1Name" placeholder="github username" [(ngModel)]="player1Name"
@@ -56,7 +56,7 @@
   <h5 class="notfound">User(s) not found.</h5>
 </div>
 
-<div class="container border" *ngIf="show && user && user2">
+<div class="border container" *ngIf="show && user && user2">
   <div class="card">
     <h5 class="card-header" *ngIf="score1 > score2">{{user.name}} <small>({{user.login}})</small>
       <h5 class="header-lg center-text">Winner
@@ -101,7 +101,7 @@
     </div>
   </div>
 
-  <div class="container border" *ngIf="show && user2">
+  <div class="border container" *ngIf="show && user2">
     <div class="card">
       <h5 class="card-header" *ngIf="score1 < score2">{{user2.name}} <small>({{user2.login}})</small>
         <h5 class="header-lg center-text">Winner

@@ -13,10 +13,10 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { InlineSVGModule } from 'ng-inline-svg';
 
-import { GithubService } from './github-services/github.service';
-import { LoaderService } from './loader-services/loader.service';
+import { GithubService } from './services/github-service/github.service';
+import { LoaderService } from './services/loader-service/loader.service';
 
-import { LoaderInterceptor } from './loader-interceptors/loader.interceptor';
+import { LoaderInterceptor } from './interceptors/loader-interceptor/loader.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -25,6 +25,7 @@ import { LookupComponent } from './lookup/lookup.component';
 import { DateCountPipe } from './date-count.pipe';
 import { BattleComponent } from './battle/battle.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreComponent } from './core/core.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NotFoundComponent,
     LookupComponent,
     DateCountPipe,
-    BattleComponent
+    BattleComponent,
+    CoreComponent
   ],
   imports: [
     BrowserModule,

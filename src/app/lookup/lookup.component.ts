@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
-import { GithubService } from '../github-services/github.service';
+import { GithubService } from '../services/github-service/github.service';
 import { Subscription, Subject } from 'rxjs';
-import { LoaderService } from '../loader-services/loader.service';
+import { LoaderService } from '../services/loader-service/loader.service';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
@@ -32,9 +32,7 @@ export class LookupComponent implements OnDestroy {
   }
 
   public ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.clearSubscriptions();
   }
 
   public findProfile(): void {
@@ -51,6 +49,7 @@ export class LookupComponent implements OnDestroy {
       })
     );
 
+    this.userForm.controls['userName'].disable();
     this.show = true;
   }
 
@@ -62,6 +61,7 @@ export class LookupComponent implements OnDestroy {
 
   public resetForm(): void {
     this.userForm.reset();
+    this.userForm.controls['userName'].enable();
     this.show = false;
   }
 }
