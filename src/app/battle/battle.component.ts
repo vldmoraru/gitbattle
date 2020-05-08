@@ -74,7 +74,7 @@ export class BattleComponent implements OnDestroy {
         }
       })
     );
-    
+
     this.playerForm.controls['player1Name'].disable();
     this.playerForm.controls['player2Name'].disable();
     this.show = true;

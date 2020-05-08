@@ -8,9 +8,6 @@ import { BattleComponent } from './battle/battle.component';
 import { CoreComponent } from './core/core.component';
 
 const routes: Routes = [
-  // { path: '', component: BattleComponent },
-  // { path: 'lookup', component: LookupComponent },
-  // { path: '**', component: NotFoundComponent },
   {
     path: '',
     component: CoreComponent,
