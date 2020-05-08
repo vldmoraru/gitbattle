@@ -30,7 +30,7 @@ export class BattleComponent implements OnDestroy {
   constructor(private githubService: GithubService, private loaderService: LoaderService) {
   }
 
-  public findProfiles() {
+  public findProfiles(): void {
     this.githubService.updateUser(this.player1Name);
     this.subscription = this.githubService.getUser().subscribe(user => {
       this.user = user;
@@ -60,9 +60,6 @@ export class BattleComponent implements OnDestroy {
 
   public input1Change(event: any) {
     this.values = event.target.value;
-    this.show = false;
-    this.user = null;
-    this.user2 = null;
     if (this.values === '') {
       this.noInput1 = true;
     } else {
@@ -72,9 +69,6 @@ export class BattleComponent implements OnDestroy {
 
   public input2Change(event: any) {
     this.values = event.target.value;
-    this.show = false;
-    this.user = null;
-    this.user2 = null;
     if (this.values === '') {
       this.noInput2 = true;
     } else {
@@ -84,6 +78,10 @@ export class BattleComponent implements OnDestroy {
 
   public prevent(event) {
     event.preventDefault();
+  }
+
+  public refresh(): void {
+    window.location.reload();
   }
 
   public ngOnDestroy() {

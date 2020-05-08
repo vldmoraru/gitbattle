@@ -39,15 +39,16 @@
     <mat-form-field class="example-full-width">
       <mat-label>Player1</mat-label>
       <input matInput name="input" placeholder="github username" (keyup)="input1Change($event)"
-        [(ngModel)]="player1Name" name="player1Name" required>
+        [(ngModel)]="player1Name" name="player1Name" [disabled]="show" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Player2</mat-label>
       <input matInput name="input" placeholder="github username" (keyup)="input2Change($event)"
-        [(ngModel)]="player2Name" name="player2Name" required>
+        [(ngModel)]="player2Name" name="player2Name" [disabled]="show" required>
     </mat-form-field>
-    <button class="button" mat-flat-button color="primary" (click)="findProfiles()"
+    <button class="button" mat-flat-button color="primary" (click)="findProfiles()" *ngIf="!show"
       [disabled]="noInput1 || noInput2">Submit</button>
+    <button class="button" mat-flat-button color="primary" (click)="refresh()" *ngIf="show">Reset</button>
   </form>
 </div>
 <br>

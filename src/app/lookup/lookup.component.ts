@@ -26,7 +26,7 @@ export class LookupComponent implements OnDestroy {
   constructor(private githubService: GithubService, private loaderService: LoaderService) {
   }
 
-  public findProfile() {
+  public findProfile(): void {
     this.githubService.updateUser(this.userName);
     this.subscription = this.githubService.getUser().subscribe(user => {
       this.user = user;
@@ -41,8 +41,6 @@ export class LookupComponent implements OnDestroy {
 
   public inputChange(event: any) {
     this.values = event.target.value;
-    this.show = false;
-    this.user = null;
     if (this.values === '') {
       this.noInput = true;
     } else {
@@ -52,6 +50,10 @@ export class LookupComponent implements OnDestroy {
 
   public prevent(event) {
     event.preventDefault();
+  }
+
+  public refresh(): void {
+    window.location.reload();
   }
 
   public ngOnDestroy() {

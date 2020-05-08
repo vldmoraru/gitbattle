@@ -7,9 +7,11 @@
 		<mat-form-field class="example-full-width">
 			<mat-label>Type Username</mat-label>
 			<input matInput name="input" placeholder="github username" (keyup)="inputChange($event)" [(ngModel)]="userName"
-				name="userName" required>
+				name="userName" [disabled]="show" required>
 		</mat-form-field>
-		<button class="button" mat-flat-button color="primary" (click)="findProfile()" [disabled]="noInput">Submit</button>
+		<button class="button" mat-flat-button color="primary" (click)="findProfile()" *ngIf="!show"
+			[disabled]="noInput">Submit</button>
+		<button class="button" mat-flat-button color="primary" (click)="refresh()" *ngIf="show">Reset</button>
 	</form>
 </div>
 <br>
