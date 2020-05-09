@@ -8,14 +8,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { InlineSVGModule } from 'ng-inline-svg';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { GithubService } from './services/github-service/github.service';
 import { LoaderService } from './services/loader-service/loader.service';
-
+import { OrderByPipe } from './pipes/order-by.pipe';
 import { LoaderInterceptor } from './interceptors/loader-interceptor/loader.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -23,9 +23,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LookupComponent } from './components/lookup/lookup.component';
 import { BattleComponent } from './components/battle/battle.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreComponent } from './components/core/core.component';
-import { OrderByPipe } from './pipes/order-by.pipe';
 import { PopularComponent } from './components/popular/popular.component';
 
 @NgModule({
@@ -35,8 +33,8 @@ import { PopularComponent } from './components/popular/popular.component';
     LookupComponent,
     BattleComponent,
     CoreComponent,
-    OrderByPipe,
-    PopularComponent
+    PopularComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

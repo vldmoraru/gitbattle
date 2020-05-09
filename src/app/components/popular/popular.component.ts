@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class PopularComponent implements OnInit, OnDestroy {
 
   public repos: string[];
+  public error: boolean = false;
   private subscription: Subscription = new Subscription();
 
   constructor(private githubService: GithubService) { }
@@ -20,6 +21,8 @@ export class PopularComponent implements OnInit, OnDestroy {
       this.subscription.add(
         this.githubService.getPopularRepos().subscribe(repos => {
           this.repos = repos.items;
+        }, error => {
+          this.error = true;
         })
       );
     });

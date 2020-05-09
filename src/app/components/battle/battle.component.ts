@@ -1,18 +1,18 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GithubService } from '../../services/github-service/github.service';
 import { Subscription } from 'rxjs';
 import { Validators } from '@angular/forms';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-battle',
   templateUrl: './battle.component.html',
   styleUrls: ['./battle.component.scss']
 })
-export class BattleComponent implements OnDestroy {
+export class BattleComponent implements OnInit, OnDestroy {
 
-  public user: string[];
-  public user2: string[];
+  public player1: string[];
+  public player2: string[];
   public repos: string[];
   private score1: number;
   private score2: number;
@@ -34,6 +34,10 @@ export class BattleComponent implements OnDestroy {
     });
   }
 
+  public ngOnInit() {
+    this.clearSubscriptions();
+  }
+
   public ngOnDestroy() {
     this.clearSubscriptions();
   }
@@ -42,15 +46,15 @@ export class BattleComponent implements OnDestroy {
     this.clearSubscriptions();
 
     this.subscriptionUser.add(
-      this.githubService.getUser(this.player1Name).subscribe(user => {
-        this.user = user;
+      this.githubService.getUser(this.playerForm.value.player1Name).subscribe(user => {
+        this.player1 = user;
         this.score1 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
       })
     );
     this.subscriptionRepos.add(
-      this.githubService.getRepos(this.player1Name).subscribe(repos => {
-        this.repos = repos;
-        for (const repo of repos) {
+      this.githubService.getRepos(this.playerForm.value.player1Name).subscribe(rp => {
+        this.repos = rp;
+        for (const repo of rp) {
           this.score1 += repo.forks_count;
         }
       })
@@ -58,15 +62,15 @@ export class BattleComponent implements OnDestroy {
 
     this.clearSubscriptions();
     this.subscriptionUser.add(
-      this.githubService.getUser(this.player2Name).subscribe(user => {
-        this.user2 = user;
+      this.githubService.getUser(this.playerForm.value.player2Name).subscribe(user => {
+        this.player2 = user;
         this.score2 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
       })
     );
     this.subscriptionRepos.add(
-      this.githubService.getRepos(this.player2Name).subscribe(repos => {
-        this.repos = repos;
-        for (const repo of repos) {
+      this.githubService.getRepos(this.playerForm.value.player2Name).subscribe(rp => {
+        this.repos = rp;
+        for (const repo of rp) {
           this.score2 += repo.forks_count;
         }
       })

@@ -35,13 +35,13 @@ export class LookupComponent implements OnDestroy {
 
   public findProfile(): void {
     this.subscription.add(
-      this.githubService.getUser(this.userName).subscribe(user => {
+      this.githubService.getUser(this.userForm.value.userName).subscribe(user => {
         this.user = user;
       })
     );
 
     this.subscription.add(
-      this.githubService.getRepos(this.userName).subscribe(repos => {
+      this.githubService.getRepos(this.userForm.value.userName).subscribe(repos => {
         this.repos = repos;
       })
     );

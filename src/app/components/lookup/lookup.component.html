@@ -2,7 +2,7 @@
 	<form class="example-form" name="example-form" [formGroup]="userForm" (ngSubmit)="findProfile()">
 		<mat-form-field class="example-full-width">
 			<mat-label>Type username</mat-label>
-			<input matInput name="input" formControlName="userName" placeholder="github username" [(ngModel)]="userName">
+			<input matInput name="input" formControlName="userName" placeholder="github username">
 		</mat-form-field>
 		<button class="button" mat-flat-button color="primary" [disabled]="!userForm.valid" *ngIf="!show">Submit</button>
 	</form>

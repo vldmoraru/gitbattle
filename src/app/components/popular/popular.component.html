@@ -1,5 +1,5 @@
 <div class="container searchPadding">
-  <div class="card">
+  <div class="card" *ngIf="!error">
     <h5 class="card-header">Popular Repos on Github</h5>
     <div class="card-body col-md-12">
       <div class="card">
@@ -22,4 +22,7 @@
         </ul>
       </div>
     </div>
+  </div>
+  <div class="card" *ngIf="error">
+    <h5 class="card-header">There was an error fetching the repositories.</h5>
   </div>
