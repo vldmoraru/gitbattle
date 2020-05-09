@@ -6,8 +6,7 @@
 	<form class="example-form" name="example-form" [formGroup]="userForm" (ngSubmit)="findProfile()">
 		<mat-form-field class="example-full-width">
 			<mat-label>Type username</mat-label>
-			<input matInput name="input" formControlName="userName" placeholder="github username" [(ngModel)]="userName"
-				required>
+			<input matInput name="input" formControlName="userName" placeholder="github username" [(ngModel)]="userName">
 		</mat-form-field>
 		<button class="button" mat-flat-button color="primary" [disabled]="!userForm.valid" *ngIf="!show">Submit</button>
 	</form>
@@ -55,12 +54,12 @@
 		<h5 class="card-header">Repos</h5>
 		<div class="card-body col-md-12">
 			<div class="card">
-				<ul class="list-group list-group-flush" *ngFor="let repo of repos">
+				<ul class="list-group list-group-flush repos" *ngFor="let repo of repos">
 					<li class="list-group-item">
 						<div class="row">
 							<div class="col-md-9">
 								<a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
-								<small>(Created days ago)</small>
+								<small>(Created at <b>{{repo.created_at}}</b>)</small>
 								<p>{{repo.description}}</p>
 							</div>
 							<div class="col-md-3">

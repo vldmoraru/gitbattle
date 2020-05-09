@@ -43,15 +43,14 @@ export class BattleComponent implements OnDestroy {
   public findProfiles(): void {
     this.clearSubscriptions();
 
-    this.githubService.updateUser(this.player1Name);
     this.subscription.add(
-      this.githubService.getUser().subscribe(user => {
+      this.githubService.getUser(this.player1Name).subscribe(user => {
         this.user = user;
         this.score1 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
       })
     );
     this.subscription.add(
-      this.githubService.getRepos().subscribe(repos => {
+      this.githubService.getRepos(this.player1Name).subscribe(repos => {
         this.repos = repos;
         for (const repo of repos) {
           this.score1 += repo.forks_count;
@@ -60,15 +59,14 @@ export class BattleComponent implements OnDestroy {
     );
 
     this.clearSubscriptions();
-    this.githubService.updateUser(this.player2Name);
     this.subscription.add(
-      this.githubService.getUser().subscribe(user => {
+      this.githubService.getUser(this.player2Name).subscribe(user => {
         this.user2 = user;
         this.score2 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
       })
     );
     this.subscription.add(
-      this.githubService.getRepos().subscribe(repos => {
+      this.githubService.getRepos(this.player2Name).subscribe(repos => {
         this.repos = repos;
         for (const repo of repos) {
           this.score2 += repo.forks_count;

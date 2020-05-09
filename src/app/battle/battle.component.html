@@ -2,7 +2,7 @@
   <mat-progress-spinner class="spinner" [color]="primary" [mode]="indeterminate" [value]="50">
   </mat-progress-spinner>
 </div>
-<div class="border container searchPadding">
+<div class="container searchPadding">
   <div class="instructions-container">
     <h1 class="center-text header-lg">Instructions</h1>
     <ol class="container-sm grid center-text battle-instructions">
@@ -23,13 +23,13 @@
   <form class="example-form" name="example-form" [formGroup]="playerForm" (ngSubmit)="findProfiles()">
     <mat-form-field class="example-full-width">
       <mat-label>Player1</mat-label>
-      <input matInput name="input" formControlName="player1Name" placeholder="github username" [(ngModel)]="player1Name"
-        required>
+      <input matInput name="input" formControlName="player1Name" placeholder="github username"
+        [(ngModel)]="player1Name">
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Player2</mat-label>
-      <input matInput name="input" formControlName="player2Name" placeholder="github username" [(ngModel)]="player2Name"
-        required>
+      <input matInput name="input" formControlName="player2Name" placeholder="github username"
+        [(ngModel)]="player2Name">
     </mat-form-field>
     <button class="button" mat-flat-button color="primary" [disabled]="!playerForm.valid" *ngIf="!show">Submit</button>
   </form>
@@ -41,14 +41,16 @@
   <h5 class="notfound">User(s) not found.</h5>
 </div>
 
-<div class="border container" *ngIf="show && user && user2">
-  <div class="card">
-    <h5 class="card-header" *ngIf="score1 > score2">{{user.name}} <small>({{user.login}})</small>
+<div class="container" *ngIf="show && user && user2">
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+    <h5 class="card-header card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 > score2">{{user.name}}
+      <small>({{user.login}})</small>
       <h5 class="header-lg center-text">Winner
         <class [inlineSVG]="'../../assets/svg/crown.svg'"></class>
       </h5>
     </h5>
-    <h5 class="card-header" *ngIf="score1 < score2">{{user.name}} <small>({{user.login}})</small>
+    <h5 class="card-header card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 < score2">{{user.name}}
+      <small>({{user.login}})</small>
       <h5 class="header-lg center-text">Loser</h5>
     </h5>
     <div class="card-body">
@@ -81,14 +83,16 @@
     </div>
   </div>
 
-  <div class="border container" *ngIf="show && user2">
-    <div class="card">
-      <h5 class="card-header" *ngIf="score1 < score2">{{user2.name}} <small>({{user2.login}})</small>
+  <div class="container player2Card" *ngIf="show && user2">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+      <h5 class="card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 < score2">{{user2.name}}
+        <small>({{user2.login}})</small>
         <h5 class="header-lg center-text">Winner
           <class [inlineSVG]="'../../assets/svg/crown.svg'"></class>
         </h5>
       </h5>
-      <h5 class="card-header" *ngIf="score1 > score2">{{user2.name}} <small>({{user2.login}})</small>
+      <h5 class="card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 > score2">{{user2.name}}
+        <small>({{user2.login}})</small>
         <h5 class="header-lg center-text">Loser</h5>
       </h5>
       <div class="card-body">
