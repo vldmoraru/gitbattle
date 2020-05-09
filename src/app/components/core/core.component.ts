@@ -8,10 +8,8 @@ import { LoaderService } from '../../services/loader-service/loader.service';
   templateUrl: './core.component.html',
   styleUrls: ['./core.component.scss']
 })
-export class CoreComponent { 
-
+export class CoreComponent {
   public isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   constructor(private githubService: GithubService, private loaderService: LoaderService) { }
-
 }
