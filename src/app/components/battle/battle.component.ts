@@ -92,6 +92,8 @@ export class BattleComponent implements OnInit, OnDestroy {
   }
 
   public resetForm(): void {
+    this.player1 = null;
+    this.player2 = null;
     this.playerForm.reset();
     this.playerForm.controls['player1Name'].enable();
     this.playerForm.controls['player2Name'].enable();

@@ -57,6 +57,7 @@ export class LookupComponent implements OnDestroy {
   }
 
   public resetForm(): void {
+    this.user = null;
     this.userForm.reset();
     this.userForm.controls['userName'].enable();
     this.show = false;
