@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GithubService } from '../../services/github-service/github.service';
-import { LoaderService } from '../../services/loader-service/loader.service';
-import { Subscription, Subject } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-popular',
@@ -13,17 +12,17 @@ export class PopularComponent implements OnInit, OnDestroy {
   public repos: string[];
   private subscription: Subscription = new Subscription();
 
-  public isLoading: Subject<boolean> = this.loaderService.isLoading;
-
-  constructor(private githubService: GithubService, private loaderService: LoaderService) { }
+  constructor(private githubService: GithubService) { }
 
   public ngOnInit(): void {
-    this.clearSubscriptions();
-    this.subscription.add(
-      this.githubService.getPopularRepos().subscribe(repos => {
-        this.repos = repos.items;
-      })
-    );
+    Promise.resolve().then(() => {
+      this.clearSubscriptions();
+      this.subscription.add(
+        this.githubService.getPopularRepos().subscribe(repos => {
+          this.repos = repos.items;
+        })
+      );
+    });
   }
 
   public ngOnDestroy(): void {
