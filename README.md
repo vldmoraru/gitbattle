@@ -42,7 +42,7 @@
  git clone https://github.com/vladmorraru/gitbattle-v9.git gitbattle
  cd gitbattle/
  npm i
- ng serve
+ ng serve --open
  ```
 
 ## Bugs and feature requests
