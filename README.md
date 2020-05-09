@@ -6,8 +6,7 @@
   <h3 align="center">Github Battle App</h3>
 
   <p align="center">
-    
-  🔥 __Github Battle__ is a Angular App that pulls data  from the [Github API](https://developer.github.com/v3/) to achieve multiple actions like Github Users Battle, Most Popular Repos and User Info 🔥
+    Github battle app with Angular 9
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
