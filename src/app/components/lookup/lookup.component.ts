@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { GithubService } from '../../services/github-service/github.service';
-import { Subscription, Subject } from 'rxjs';
-import { LoaderService } from '../../services/loader-service/loader.service';
+import { Subscription } from 'rxjs';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
@@ -18,10 +17,9 @@ export class LookupComponent implements OnDestroy {
   public userName: string;
   public show = false;
   private subscription: Subscription = new Subscription();
-  public isLoading: Subject<boolean> = this.loaderService.isLoading;
   public userForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private githubService: GithubService, private loaderService: LoaderService) {
+  constructor(private formBuilder: FormBuilder, private githubService: GithubService) {
     this.createUserForm();
   }
 

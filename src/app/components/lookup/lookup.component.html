@@ -1,7 +1,3 @@
-<div *ngIf="isLoading | async" class="overlay">
-	<mat-progress-spinner class="spinner" [color]="primary" [mode]="indeterminate" [value]="50">
-	</mat-progress-spinner>
-</div>
 <div class="border container searchPadding">
 	<form class="example-form" name="example-form" [formGroup]="userForm" (ngSubmit)="findProfile()">
 		<mat-form-field class="example-full-width">
