@@ -6,7 +6,8 @@
   <h3 align="center">Github Battle App</h3>
 
   <p align="center">
-    Github battle app with Angular 9
+    
+  🔥 __Github Battle__ is a Angular App that pulls data  from the [Github API](https://developer.github.com/v3/) to achieve multiple actions like Github Users Battle, Most Popular Repos and User Info 🔥
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
@@ -35,6 +36,14 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/vladmorraru/gitbattle-v9.svg?style=social&label=Star)](https://github.com/vladmorraru/gitbattle-v9/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/vladmorraru/gitbattle-v9.svg?style=social&label=Fork)](https://github.com/vladmorraru/gitbattle-v9/fork)
+
+## Features
+
+* 📊 __Real-time__: Data obtained from the [Github API](https://developer.github.com/v3/)
+
+* 📱 __Responsive__: Made mobile responsive
+
+* 🔥 __Live__: Deployed with [Netlify](https://netlify.com/)
 
 ## Quick start
 
