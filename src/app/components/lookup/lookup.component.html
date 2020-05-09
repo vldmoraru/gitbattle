@@ -54,7 +54,7 @@
 		<h5 class="card-header">Repos</h5>
 		<div class="card-body col-md-12">
 			<div class="card">
-				<ul class="list-group list-group-flush repos" *ngFor="let repo of repos">
+				<ul class="list-group list-group-flush repos" *ngFor="let repo of repos | orderBy: 'created_at'">
 					<li class="list-group-item">
 						<div class="row">
 							<div class="col-md-9">

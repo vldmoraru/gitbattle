@@ -1,0 +1,29 @@
+<div *ngIf="isLoading | async" class="overlay">
+  <mat-progress-spinner class="spinner" [color]="primary" [mode]="indeterminate" [value]="50">
+  </mat-progress-spinner>
+</div>
+<div class="container searchPadding">
+  <div class="card">
+    <h5 class="card-header">Popular Repos</h5>
+    <div class="card-body col-md-12">
+      <div class="card">
+        <ul class="list-group list-group-flush repos" *ngFor="let repo of repos">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-9">
+                <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+                <p>{{repo.description}}</p>
+              </div>
+              <div class="col-md-3">
+                <span class="badge badge-primary">{{repo.watchers}} Watcher</span>
+                <span class="badge badge-info">{{repo.forks}} Forks</span>
+                <br>
+                <a href="{{repo.html_url}}" target="_blank" class="btn btn-outline-info" style="width: 7.5rem">View
+                  Repo</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

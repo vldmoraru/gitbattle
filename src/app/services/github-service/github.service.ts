@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
    providedIn: 'root',
 })
 export class GithubService {
+   private apiURL: string = 'https://api.github.com/';
    private clientId: string = '3899367101276f5d353a3';
    private clientSecret: string = '1e7c5d0e75cc9884e7de71e85e7a6865f7d12d2d';
 
@@ -13,14 +14,19 @@ export class GithubService {
    }
 
    public getUser(userName: string) {
-      return this.http.get('https://api.github.com/users/' + userName + '?client_id='
+      return this.http.get(this.apiURL + 'users/' + userName + '?client_id='
          + this.clientId + '&client_secret=' + this.clientSecret).pipe(
             map((res: string) => JSON.parse(JSON.stringify(res))));
    }
 
    public getRepos(userName: string) {
-      return this.http.get('https://api.github.com/users/' + userName + '/repos?client_id='
+      return this.http.get(this.apiURL + 'users/' + userName + '/repos?client_id='
          + this.clientId + '&client_secret=' + this.clientSecret).pipe(
             map((res: string) => JSON.parse(JSON.stringify(res))));
+   }
+
+   public getPopularRepos() {
+      return this.http.get(this.apiURL + 'search/repositories?q=stars:>1+language:all&sort=stars&order=desc&type=Repositories').pipe(
+         map((res: string) => JSON.parse(JSON.stringify(res))));
    }
 }

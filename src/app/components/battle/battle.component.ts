@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
-import { GithubService } from '../services/github-service/github.service';
+import { GithubService } from '../../services/github-service/github.service';
 import { Subscription, Subject } from 'rxjs';
-import { LoaderService } from '../services/loader-service/loader.service';
+import { LoaderService } from '../../services/loader-service/loader.service';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
