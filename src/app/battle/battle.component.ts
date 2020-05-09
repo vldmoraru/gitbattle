@@ -85,7 +85,7 @@ export class BattleComponent implements OnDestroy {
       this.subscriptionUser.unsubscribe();
     }
 
-    if(this.subscriptionRepos.closed) {
+    if (this.subscriptionRepos.closed) {
       this.subscriptionRepos.unsubscribe();
     }
   }
