@@ -16,11 +16,15 @@ export class LookupComponent implements OnDestroy {
   private repos: string[];
   public userName: string;
   public show = false;
-  private subscription: Subscription = new Subscription();
+  private subscriptions: Subscription = new Subscription();
   public userForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private githubService: GithubService) {
     this.createUserForm();
+  }
+
+  public ngOnDestroy() {
+    this.clearSubscriptions();
   }
 
   private createUserForm() {
@@ -29,18 +33,15 @@ export class LookupComponent implements OnDestroy {
     });
   }
 
-  public ngOnDestroy() {
-    this.clearSubscriptions();
-  }
-
   public findProfile(): void {
-    this.subscription.add(
+    this.clearSubscriptions();
+    this.subscriptions.add(
       this.githubService.getUser(this.userForm.value.userName).subscribe(user => {
         this.user = user;
       })
     );
 
-    this.subscription.add(
+    this.subscriptions.add(
       this.githubService.getRepos(this.userForm.value.userName).subscribe(repos => {
         this.repos = repos;
       })
@@ -51,8 +52,8 @@ export class LookupComponent implements OnDestroy {
   }
 
   private clearSubscriptions(): void {
-    if (this.subscription.closed) {
-      this.subscription.unsubscribe();
+    if (this.subscriptions.closed) {
+      this.subscriptions.unsubscribe();
     }
   }
 

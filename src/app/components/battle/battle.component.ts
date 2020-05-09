@@ -19,12 +19,18 @@ export class BattleComponent implements OnInit, OnDestroy {
   public player1Name: string;
   public player2Name: string;
   public show: boolean = false;
-  private subscriptionUser: Subscription = new Subscription();
-  private subscriptionRepos: Subscription = new Subscription();
+  private subscriptions: Subscription = new Subscription();
   public playerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private githubService: GithubService) {
     this.createPlayerForm();
+  }
+
+  public ngOnInit() {
+  }
+
+  public ngOnDestroy() {
+    this.clearSubscriptions();
   }
 
   private createPlayerForm() {
@@ -34,24 +40,16 @@ export class BattleComponent implements OnInit, OnDestroy {
     });
   }
 
-  public ngOnInit() {
-    this.clearSubscriptions();
-  }
-
-  public ngOnDestroy() {
-    this.clearSubscriptions();
-  }
-
   public findProfiles(): void {
     this.clearSubscriptions();
 
-    this.subscriptionUser.add(
+    this.subscriptions.add(
       this.githubService.getUser(this.playerForm.value.player1Name).subscribe(user => {
         this.player1 = user;
         this.score1 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
       })
     );
-    this.subscriptionRepos.add(
+    this.subscriptions.add(
       this.githubService.getRepos(this.playerForm.value.player1Name).subscribe(rp => {
         this.repos = rp;
         for (const repo of rp) {
@@ -60,14 +58,13 @@ export class BattleComponent implements OnInit, OnDestroy {
       })
     );
 
-    this.clearSubscriptions();
-    this.subscriptionUser.add(
+    this.subscriptions.add(
       this.githubService.getUser(this.playerForm.value.player2Name).subscribe(user => {
         this.player2 = user;
         this.score2 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
       })
     );
-    this.subscriptionRepos.add(
+    this.subscriptions.add(
       this.githubService.getRepos(this.playerForm.value.player2Name).subscribe(rp => {
         this.repos = rp;
         for (const repo of rp) {
@@ -82,12 +79,8 @@ export class BattleComponent implements OnInit, OnDestroy {
   }
 
   private clearSubscriptions(): void {
-    if (this.subscriptionUser.closed) {
-      this.subscriptionUser.unsubscribe();
-    }
-
-    if (this.subscriptionRepos.closed) {
-      this.subscriptionRepos.unsubscribe();
+    if (this.subscriptions.closed) {
+      this.subscriptions.unsubscribe();
     }
   }
 

@@ -11,14 +11,18 @@ export class PopularComponent implements OnInit, OnDestroy {
 
   public repos: string[];
   public error: boolean = false;
-  private subscription: Subscription = new Subscription();
+  private subscriptions: Subscription = new Subscription();
 
   constructor(private githubService: GithubService) { }
+
+  public ngOnDestroy(): void {
+    this.clearSubscriptions();
+  }
 
   public ngOnInit(): void {
     Promise.resolve().then(() => {
       this.clearSubscriptions();
-      this.subscription.add(
+      this.subscriptions.add(
         this.githubService.getPopularRepos().subscribe(repos => {
           this.repos = repos.items;
         }, error => {
@@ -28,13 +32,9 @@ export class PopularComponent implements OnInit, OnDestroy {
     });
   }
 
-  public ngOnDestroy(): void {
-    this.clearSubscriptions();
-  }
-
   private clearSubscriptions(): void {
-    if (this.subscription.closed) {
-      this.subscription.unsubscribe();
+    if (this.subscriptions.closed) {
+      this.subscriptions.unsubscribe();
     }
   }
 }

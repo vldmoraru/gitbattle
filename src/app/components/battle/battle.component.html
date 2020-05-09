@@ -81,47 +81,45 @@
     </div>
   </div>
 
-  <div class="container player2Card" *ngIf="show && player1 && player2">
-    <div class="card shadow p-3 mb-5 bg-white rounded">
-      <h5 class="card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 < score2">{{player2.name}}
-        <small>({{player2.login}})</small>
-        <h5 class="header-lg center-text">Winner
-          <class [inlineSVG]="'../../assets/svg/crown.svg'"></class>
-        </h5>
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+    <h5 class="card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 < score2">{{player2.name}}
+      <small>({{player2.login}})</small>
+      <h5 class="header-lg center-text">Winner
+        <class [inlineSVG]="'../../assets/svg/crown.svg'"></class>
       </h5>
-      <h5 class="card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 > score2">{{player2.name}}
-        <small>({{player2.login}})</small>
-        <h5 class="header-lg center-text">Loser</h5>
-      </h5>
-      <h5 class="card-header card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 == score2">{{player2.name}}
-        <small>({{player2.login}})</small>
-        <h5 class="header-lg center-text">Tie</h5>
-      </h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="{{player2.avatar_url}}" class="img-thumbnail img-fluid" alt="img">
-            <hr>
+    </h5>
+    <h5 class="card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 > score2">{{player2.name}}
+      <small>({{player2.login}})</small>
+      <h5 class="header-lg center-text">Loser</h5>
+    </h5>
+    <h5 class="card-header card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 == score2">{{player2.name}}
+      <small>({{player2.login}})</small>
+      <h5 class="header-lg center-text">Tie</h5>
+    </h5>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="{{player2.avatar_url}}" class="img-thumbnail img-fluid" alt="img">
+          <hr>
 
-            <h3 class="card-header"><small>Score: {{score2}}</small></h3>
-            <a href="{{player2.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a>
-          </div>
-          <div class="col-md-2"></div>
-          <div class="col-md-6">
-            <span class="badge badge-primary">{{player2.followers}} Followers</span>
-            <span class="badge badge-secondary">{{player2.following}} Following</span>
-            <span class="badge badge-success">{{player2.public_gists}} Public Gists</span>
-            <span class="badge badge-info">{{player2.public_repos}} Public Repos</span>
-            <hr>
+          <h3 class="card-header"><small>Score: {{score2}}</small></h3>
+          <a href="{{player2.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+          <span class="badge badge-primary">{{player2.followers}} Followers</span>
+          <span class="badge badge-secondary">{{player2.following}} Following</span>
+          <span class="badge badge-success">{{player2.public_gists}} Public Gists</span>
+          <span class="badge badge-info">{{player2.public_repos}} Public Repos</span>
+          <hr>
 
-            <div class="card">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" *ngIf="player2.name">Name: {{player2.name}}</li>
-                <li class="list-group-item" *ngIf="player2.location">Lives in: {{player2.location}}</li>
-                <li class="list-group-item" *ngIf="player2.blog">Blog: {{player2.blog}}</li>
-                <li class="list-group-item" *ngIf="player2.company">Company: {{player2.company}}</li>
-              </ul>
-            </div>
+          <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngIf="player2.name">Name: {{player2.name}}</li>
+              <li class="list-group-item" *ngIf="player2.location">Lives in: {{player2.location}}</li>
+              <li class="list-group-item" *ngIf="player2.blog">Blog: {{player2.blog}}</li>
+              <li class="list-group-item" *ngIf="player2.company">Company: {{player2.company}}</li>
+            </ul>
           </div>
         </div>
       </div>
