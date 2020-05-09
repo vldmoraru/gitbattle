@@ -18,7 +18,7 @@
     <a href="https://vibrant-cori-06b9bd.netlify.app/">LIVE DEMO NETLIFY</a>
     <br>
     <a href="https://vibrant-cori-06b9bd.netlify.app/">
-      <img src="https://media.giphy.com/media/SXs42ME29230fGzKwi/giphy.gif" alt="Demo example"/>
+      <img src="https://media.giphy.com/media/j3KWRBuEXfva8KzCKi/giphy.gif" alt="Demo example"/>
     </a>
     <br>
     <br>
