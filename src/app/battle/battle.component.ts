@@ -20,7 +20,8 @@ export class BattleComponent implements OnDestroy {
   public player1Name: string;
   public player2Name: string;
   public show: boolean = false;
-  private subscription: Subscription = new Subscription();
+  private subscriptionUser: Subscription = new Subscription();
+  private subscriptionRepos: Subscription = new Subscription();
   public playerForm: FormGroup;
 
   public isLoading: Subject<boolean> = this.loaderService.isLoading;
@@ -43,13 +44,13 @@ export class BattleComponent implements OnDestroy {
   public findProfiles(): void {
     this.clearSubscriptions();
 
-    this.subscription.add(
+    this.subscriptionUser.add(
       this.githubService.getUser(this.player1Name).subscribe(user => {
         this.user = user;
         this.score1 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
       })
     );
-    this.subscription.add(
+    this.subscriptionRepos.add(
       this.githubService.getRepos(this.player1Name).subscribe(repos => {
         this.repos = repos;
         for (const repo of repos) {
@@ -59,13 +60,13 @@ export class BattleComponent implements OnDestroy {
     );
 
     this.clearSubscriptions();
-    this.subscription.add(
+    this.subscriptionUser.add(
       this.githubService.getUser(this.player2Name).subscribe(user => {
         this.user2 = user;
         this.score2 = 2 * user.public_repos + 2 * user.public_gists + user.followers;
       })
     );
-    this.subscription.add(
+    this.subscriptionRepos.add(
       this.githubService.getRepos(this.player2Name).subscribe(repos => {
         this.repos = repos;
         for (const repo of repos) {
@@ -80,8 +81,12 @@ export class BattleComponent implements OnDestroy {
   }
 
   private clearSubscriptions(): void {
-    if (this.subscription.closed) {
-      this.subscription.unsubscribe();
+    if (this.subscriptionUser.closed) {
+      this.subscriptionUser.unsubscribe();
+    }
+
+    if(this.subscriptionRepos.closed) {
+      this.subscriptionRepos.unsubscribe();
     }
   }
 
