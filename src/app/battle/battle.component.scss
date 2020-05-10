@@ -77,3 +77,7 @@ span ::ng-deep svg {
 .img-thumbnail {
   border-radius: 50%;
 }
+
+mat-chip {
+  min-height: 10px;
+}

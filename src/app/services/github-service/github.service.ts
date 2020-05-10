@@ -9,7 +9,7 @@ export class GithubService {
    private apiURL: string = 'https://api.github.com/';
    private clientId: string = '3899367101276f5d353a3';
    private clientSecret: string = '1e7c5d0e75cc9884e7de71e85e7a6865f7d12d2d';
-   private params: string = "?client_id= + this.clientId + &client_secret= + this.clientSecret";
+   private params: string = '?client_id= + this.clientId + &client_secret= + this.clientSecret';
 
    constructor(private http: HttpClient) {
    }

@@ -20,11 +20,12 @@ import { LoaderInterceptor } from './interceptors/loader-interceptor/loader.inte
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { LookupComponent } from './components/lookup/lookup.component';
-import { BattleComponent } from './components/battle/battle.component';
-import { CoreComponent } from './components/core/core.component';
-import { PopularComponent } from './components/popular/popular.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LookupComponent } from './lookup/lookup.component';
+import { BattleComponent } from './battle/battle.component';
+import { CoreComponent } from './core/core.component';
+import { PopularComponent } from './popular/popular.component';
+import { PlayerComponent } from './battle/player/player.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PopularComponent } from './components/popular/popular.component';
     BattleComponent,
     CoreComponent,
     PopularComponent,
-    OrderByPipe
+    OrderByPipe,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

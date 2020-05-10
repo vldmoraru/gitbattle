@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { GithubService } from '../../services/github-service/github.service';
+import { GithubService } from '../services/github-service/github.service';
+import { LoaderService } from '../services/loader-service/loader.service';
 import { Subject } from 'rxjs';
-import { LoaderService } from '../../services/loader-service/loader.service';
 
 @Component({
   selector: 'app-core',

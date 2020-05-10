@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { LookupComponent } from './components/lookup/lookup.component';
-import { BattleComponent } from './components/battle/battle.component';
-import { PopularComponent } from './components/popular/popular.component';
-import { CoreComponent } from './components/core/core.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LookupComponent } from './lookup/lookup.component';
+import { BattleComponent } from './battle/battle.component';
+import { PopularComponent } from './popular/popular.component';
+import { CoreComponent } from './core/core.component';
 
 const routes: Routes = [
   {

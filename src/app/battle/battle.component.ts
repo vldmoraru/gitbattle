@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GithubService } from '../../services/github-service/github.service';
+import { GithubService } from '../services/github-service/github.service';
 import { Subscription } from 'rxjs';
 import { Validators } from '@angular/forms';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-battle',
@@ -22,11 +22,10 @@ export class BattleComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription = new Subscription();
   public playerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private githubService: GithubService) {
-    this.createPlayerForm();
-  }
+  constructor(private formBuilder: FormBuilder, private githubService: GithubService) { }
 
   public ngOnInit() {
+    this.createPlayerForm();
   }
 
   public ngOnDestroy() {

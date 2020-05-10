@@ -1,5 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
-import { GithubService } from '../../services/github-service/github.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { GithubService } from '../services/github-service/github.service';
 import { Subscription } from 'rxjs';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./lookup.component.scss']
 })
 
-export class LookupComponent implements OnDestroy {
+export class LookupComponent implements OnInit, OnDestroy {
 
   public user: string[];
   private repos: string[];
@@ -19,7 +19,9 @@ export class LookupComponent implements OnDestroy {
   private subscriptions: Subscription = new Subscription();
   public userForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private githubService: GithubService) {
+  constructor(private formBuilder: FormBuilder, private githubService: GithubService) { }
+
+  public ngOnInit() {
     this.createUserForm();
   }
 
