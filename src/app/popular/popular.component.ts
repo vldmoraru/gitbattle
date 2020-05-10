@@ -20,11 +20,11 @@ export class PopularComponent implements OnInit, OnDestroy {
 
   constructor(private githubService: GithubService) { }
 
-  public ngOnDestroy(): void {
+  public ngOnDestroy() {
     this.subscriptions.unsubscribe();
   }
 
-  public ngOnInit(): void {
+  public ngOnInit() {
     Promise.resolve().then(() => {
       this.subscriptions.add(
         this.githubService.getPopularRepos(this.langs[0]).subscribe(repos => {
@@ -36,7 +36,7 @@ export class PopularComponent implements OnInit, OnDestroy {
     });
   }
 
-  public ChangeLang(event: MatRadioButton): void {
+  public ChangeLang(event: MatRadioButton) {
     this.subscriptions.add(
       this.githubService.getPopularRepos(event.value).subscribe(repos => {
         this.repos = repos.items;

@@ -35,7 +35,7 @@ export class LookupComponent implements OnInit, OnDestroy {
     });
   }
 
-  public findProfile(): void {
+  public findProfile() {
     this.subscriptions.add(
       this.githubService.getUser(this.userForm.value.userName).subscribe(user => {
         this.user = user;
@@ -52,7 +52,7 @@ export class LookupComponent implements OnInit, OnDestroy {
     this.show = true;
   }
 
-  public resetForm(): void {
+  public resetForm() {
     this.user = null;
     this.userForm.reset();
     this.userForm.controls['userName'].enable();

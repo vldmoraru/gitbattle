@@ -39,7 +39,7 @@ export class BattleComponent implements OnInit, OnDestroy {
     });
   }
 
-  public findProfiles(): void {
+  public findProfiles() {
     this.subscriptions.add(
       this.githubService.getUser(this.playerForm.value.player1Name).subscribe(user => {
         this.player1 = user;
@@ -75,7 +75,7 @@ export class BattleComponent implements OnInit, OnDestroy {
     this.show = true;
   }
 
-  public resetForm(): void {
+  public resetForm() {
     this.player1 = null;
     this.player2 = null;
     this.playerForm.reset();
