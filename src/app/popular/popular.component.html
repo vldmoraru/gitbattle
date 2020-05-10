@@ -1,34 +1,32 @@
 <div class="container searchPadding">
-  <div class="card" *ngIf="!error">
-    <mat-radio-group [value]="langs[0]">
-      <mat-radio-button class="example-radio-button" (change)="ChangeLang($event)" *ngFor="let lang of langs"
-        [value]="lang">
-        {{lang}}
-      </mat-radio-button>
-    </mat-radio-group>
-    <h5 class="card-header">Popular Repos on Github</h5>
-    <div class="card-body col-md-12">
-      <div class="card">
-        <ul class="list-group list-group-flush repos" *ngFor="let repo of repos">
-          <li class="list-group-item">
-            <div class="row">
-              <div class="col-md-9">
-                <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
-                <p>{{repo.description}}</p>
-              </div>
-              <div class="col-md-3">
-                <span class="badge badge-warning">{{repo.stargazers_count}} Stars</span>
-                <span class="badge badge-info">{{repo.forks}} Forks</span>
-                <br>
-                <a href="{{repo.html_url}}" target="_blank" class="btn btn-outline-info" style="width: 7.5rem">View
-                  Repo</a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <h5 class="card-header" *ngIf="!error">Popular Repos on Github</h5>
   <div class="card" *ngIf="error">
     <h5 class="card-header">There was an error fetching the repositories.</h5>
+  </div>
+  <mat-radio-group [value]="langs[0]">
+    <mat-radio-button class="example-radio-button" (change)="ChangeLang($event)" *ngFor="let lang of langs"
+      [value]="lang">
+      {{lang}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div class="card-body col-md-12">
+    <div class="card">
+      <ul class="list-group list-group-flush repos" *ngFor="let repo of repos">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-9">
+              <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+              <p>{{repo.description}}</p>
+            </div>
+            <div class="col-md-3">
+              <span class="badge badge-warning">{{repo.stargazers_count}} Stars</span>
+              <span class="badge badge-info">{{repo.forks}} Forks</span>
+              <br>
+              <a href="{{repo.html_url}}" target="_blank" class="btn btn-outline-info" style="width: 7.5rem">View
+                Repo</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>

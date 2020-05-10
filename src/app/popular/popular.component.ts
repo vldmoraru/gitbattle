@@ -42,6 +42,7 @@ export class PopularComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.githubService.getPopularRepos(event.value).subscribe(repos => {
         this.repos = repos.items;
+        this.error = false;
       }, error => {
         this.error = true;
       })
