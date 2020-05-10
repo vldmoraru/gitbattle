@@ -29,7 +29,7 @@ export class BattleComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.clearSubscriptions();
+    this.subscriptions.unsubscribe();
   }
 
   private createPlayerForm() {
@@ -40,8 +40,6 @@ export class BattleComponent implements OnInit, OnDestroy {
   }
 
   public findProfiles(): void {
-    this.clearSubscriptions();
-
     this.subscriptions.add(
       this.githubService.getUser(this.playerForm.value.player1Name).subscribe(user => {
         this.player1 = user;
@@ -75,12 +73,6 @@ export class BattleComponent implements OnInit, OnDestroy {
     this.playerForm.controls['player1Name'].disable();
     this.playerForm.controls['player2Name'].disable();
     this.show = true;
-  }
-
-  private clearSubscriptions(): void {
-    if (this.subscriptions.closed) {
-      this.subscriptions.unsubscribe();
-    }
   }
 
   public resetForm(): void {

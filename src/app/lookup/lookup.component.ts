@@ -26,7 +26,7 @@ export class LookupComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.clearSubscriptions();
+    this.subscriptions.unsubscribe();
   }
 
   private createUserForm() {
@@ -36,7 +36,6 @@ export class LookupComponent implements OnInit, OnDestroy {
   }
 
   public findProfile(): void {
-    this.clearSubscriptions();
     this.subscriptions.add(
       this.githubService.getUser(this.userForm.value.userName).subscribe(user => {
         this.user = user;
@@ -51,12 +50,6 @@ export class LookupComponent implements OnInit, OnDestroy {
 
     this.userForm.controls['userName'].disable();
     this.show = true;
-  }
-
-  private clearSubscriptions(): void {
-    if (this.subscriptions.closed) {
-      this.subscriptions.unsubscribe();
-    }
   }
 
   public resetForm(): void {

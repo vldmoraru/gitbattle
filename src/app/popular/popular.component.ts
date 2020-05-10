@@ -21,22 +21,22 @@ export class PopularComponent implements OnInit, OnDestroy {
   constructor(private githubService: GithubService) { }
 
   public ngOnDestroy(): void {
-    this.clearSubscriptions();
+    this.subscriptions.unsubscribe();
   }
 
   public ngOnInit(): void {
-    this.clearSubscriptions();
-    this.subscriptions.add(
-      this.githubService.getPopularRepos(this.langs[0]).subscribe(repos => {
-        this.repos = repos.items;
-      }, error => {
-        this.error = true;
-      })
-    );
+    Promise.resolve().then(() => {
+      this.subscriptions.add(
+        this.githubService.getPopularRepos(this.langs[0]).subscribe(repos => {
+          this.repos = repos.items;
+        }, error => {
+          this.error = true;
+        })
+      );
+    });
   }
 
   public ChangeLang(event: MatRadioButton): void {
-    this.clearSubscriptions();
     this.subscriptions.add(
       this.githubService.getPopularRepos(event.value).subscribe(repos => {
         this.repos = repos.items;
@@ -45,11 +45,5 @@ export class PopularComponent implements OnInit, OnDestroy {
         this.error = true;
       })
     );
-  }
-
-  private clearSubscriptions(): void {
-    if (this.subscriptions.closed) {
-      this.subscriptions.unsubscribe();
-    }
   }
 }
