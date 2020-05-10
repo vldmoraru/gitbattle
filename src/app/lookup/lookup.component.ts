@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GithubService } from '../services/github-service/github.service';
+import { GithubService } from '../services';
 import { Subscription } from 'rxjs';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';

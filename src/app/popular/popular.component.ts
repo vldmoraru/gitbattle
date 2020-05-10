@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GithubService } from '../services/github-service/github.service';
+import { GithubService } from '../services';
 import { Subscription } from 'rxjs';
 import { MatRadioButton } from '@angular/material/radio';
 
@@ -10,7 +10,7 @@ import { MatRadioButton } from '@angular/material/radio';
 })
 export class PopularComponent implements OnInit, OnDestroy {
 
-  public repos: string[];
+  public repos: string[] = [];
   public error: boolean = false;
   public langs: string[] = [
     'All', 'Javascript', 'Ruby', 'Java',
@@ -25,16 +25,14 @@ export class PopularComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    Promise.resolve().then(() => {
-      this.clearSubscriptions();
-      this.subscriptions.add(
-        this.githubService.getPopularRepos(this.langs[0]).subscribe(repos => {
-          this.repos = repos.items;
-        }, error => {
-          this.error = true;
-        })
-      );
-    });
+    this.clearSubscriptions();
+    this.subscriptions.add(
+      this.githubService.getPopularRepos(this.langs[0]).subscribe(repos => {
+        this.repos = repos.items;
+      }, error => {
+        this.error = true;
+      })
+    );
   }
 
   public ChangeLang(event: MatRadioButton): void {

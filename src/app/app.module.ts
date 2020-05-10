@@ -14,8 +14,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { GithubService } from './services/github-service/github.service';
-import { LoaderService } from './services/loader-service/loader.service';
+import { GithubService, LoaderService } from './services';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { LoaderInterceptor } from './interceptors/loader-interceptor/loader.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -26,6 +25,7 @@ import { LookupComponent } from './lookup/lookup.component';
 import { BattleComponent } from './battle/battle.component';
 import { CoreComponent } from './core/core.component';
 import { PopularComponent } from './popular/popular.component';
+import { HeaderComponent } from './core/header/header.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { PopularComponent } from './popular/popular.component';
     BattleComponent,
     CoreComponent,
     PopularComponent,
-    OrderByPipe
+    OrderByPipe,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

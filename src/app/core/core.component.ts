@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { GithubService } from '../services/github-service/github.service';
-import { LoaderService } from '../services/loader-service/loader.service';
+import { GithubService, LoaderService } from '../services/';
 import { Subject } from 'rxjs';
 
 @Component({
