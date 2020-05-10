@@ -1,5 +1,11 @@
 <div class="container searchPadding">
   <div class="card" *ngIf="!error">
+    <mat-radio-group [value]="langs[0]">
+      <mat-radio-button class="example-radio-button" (change)="ChangeLang($event)" *ngFor="let lang of langs"
+        [value]="lang">
+        {{lang}}
+      </mat-radio-button>
+    </mat-radio-group>
     <h5 class="card-header">Popular Repos on Github</h5>
     <div class="card-body col-md-12">
       <div class="card">

@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { InlineSVGModule } from 'ng-inline-svg';
@@ -25,7 +26,6 @@ import { LookupComponent } from './lookup/lookup.component';
 import { BattleComponent } from './battle/battle.component';
 import { CoreComponent } from './core/core.component';
 import { PopularComponent } from './popular/popular.component';
-import { PlayerComponent } from './battle/player/player.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +35,7 @@ import { PlayerComponent } from './battle/player/player.component';
     BattleComponent,
     CoreComponent,
     PopularComponent,
-    OrderByPipe,
-    PlayerComponent
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
@@ -50,6 +49,7 @@ import { PlayerComponent } from './battle/player/player.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatRadioModule,
     MatProgressSpinnerModule,
     InlineSVGModule.forRoot()
   ],

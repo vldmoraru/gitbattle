@@ -16,16 +16,17 @@ export class GithubService {
 
    public getUser(userName: string) {
       return this.http.get(this.apiURL + 'users/' + userName + this.params).pipe(
-            map((res: string) => JSON.parse(JSON.stringify(res))));
+         map((res: string) => JSON.parse(JSON.stringify(res))));
    }
 
    public getRepos(userName: string) {
       return this.http.get(this.apiURL + 'users/' + userName + '/repos' + this.params).pipe(
-            map((res: string) => JSON.parse(JSON.stringify(res))));
+         map((res: string) => JSON.parse(JSON.stringify(res))));
    }
 
-   public getPopularRepos() {
-      return this.http.get(this.apiURL + 'search/repositories?q=stars:>1+language:all&sort=stars&order=desc&type=Repositories').pipe(
-         map((res: string) => JSON.parse(JSON.stringify(res))));
+   public getPopularRepos(lang: string) {
+      return this.http.get(this.apiURL + 'search/repositories?q=stars:>1+language:' + lang +
+         '&sort=stars&order=desc&type=Repositories').pipe(
+            map((res: string) => JSON.parse(JSON.stringify(res))));
    }
 }

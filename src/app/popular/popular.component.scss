@@ -18,3 +18,12 @@
 .badge {
   margin-right: 6px;
 }
+
+mat-radio-group{
+  text-align: center;
+	margin-top: 50px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
