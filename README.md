@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://angular.io/">
-    <img src="https://www.angularexampleapp.com/assets/images/angular.svg" alt="Logo" width=72 height=72>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/240px-Angular_full_color_logo.svg.png" alt="Logo" width=72 height=72>
   </a>
 
   <h3 align="center">Github Battle App</h3>
