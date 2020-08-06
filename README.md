@@ -15,26 +15,26 @@
     Project made with much :heart:.
     <br>
     <br>
-    <a href="https://vibrant-cori-06b9bd.netlify.app/">LIVE DEMO NETLIFY</a>
+    <a href="https://gitbattleangular.netlify.app/">LIVE DEMO NETLIFY</a>
     <br>
-    <a href="https://vibrant-cori-06b9bd.netlify.app/">
+    <a href="https://gitbattleangular.netlify.app/">
       <img src="https://media.giphy.com/media/j3KWRBuEXfva8KzCKi/giphy.gif" alt="Demo example"/>
     </a>
     <br>
     <br>
-    <a href="https://github.com/vladmorraru/gitbattle-v9/issues/new">Report bug</a>
+    <a href="https://github.com/vldmoraru/gitbattle/issues/new">Report bug</a>
     ·
-    <a href="https://github.com/vladmorraru/gitbattle-v9/issues/new">Request feature</a>
+    <a href="https://github.com/vldmoraru/gitbattle/issues/new">Request feature</a>
   </p>
 </p>
 
 ## Status
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vladmorraru_gitbattle-v9&metric=alert_status)](https://sonarcloud.io/dashboard?id=vladmorraru_gitbattle-v9)
-[![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://vibrant-cori-06b9bd.netlify.app/)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vldmoraru_gitbattle&metric=alert_status)](https://sonarcloud.io/dashboard?id=vldmoraru_gitbattle)
+[![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://gitbattleangular.netlify.app/)
 
-[![GitHub stars](https://img.shields.io/github/stars/vladmorraru/gitbattle-v9.svg?style=social&label=Star)](https://github.com/vladmorraru/gitbattle-v9/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/vladmorraru/gitbattle-v9.svg?style=social&label=Fork)](https://github.com/vladmorraru/gitbattle-v9/fork)
+[![GitHub stars](https://img.shields.io/github/stars/vldmoraru/gitbattle.svg?style=social&label=Star)](https://github.com/vldmoraru/gitbattle/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/vldmoraru/gitbattle.svg?style=social&label=Fork)](https://github.com/vldmoraru/gitbattle/fork)
 
 ## Features
 
@@ -47,7 +47,7 @@
 ## Quick start
 
  ```bash
- git clone https://github.com/vladmorraru/gitbattle-v9.git gitbattle
+ git clone https://github.com/vldmoraru/gitbattle.git
  cd gitbattle/
  npm i
  ng serve --open
@@ -55,14 +55,14 @@
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? [Please open a new issue](https://github.com/vladmorraru/gitbattle-v9/issues/new).
+Have a bug or a feature request? [Please open a new issue](https://github.com/vldmoraru/gitbattle/issues/new).
 
 ## Creators
 
 **Vlad Moraru**
 
-- <https://github.com/vladmorraru>
+- <https://github.com/vldmoraru>
 
-<a href="https://github.com/vladmorraru" target="_blank"><img src="https://media.giphy.com/media/j3iAl8ayoNtSXubIMB/giphy.gif" border="0" alt="avatar"></a>
+<a href="https://github.com/vladmoraru" target="_blank"><img src="https://media.giphy.com/media/j3iAl8ayoNtSXubIMB/giphy.gif" border="0" alt="avatar"></a>
 
 Enjoy :metal:
