@@ -30,7 +30,7 @@
 
 ## Status
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vldmoraru_gitbattle&metric=alert_status)](https://sonarcloud.io/dashboard?id=vldmoraru_gitbattle)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vladmorraru_gitbattle-v9&metric=alert_status)](https://sonarcloud.io/dashboard?id=vladmorraru_gitbattle-v9)
 [![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://gitbattleangular.netlify.app/)
 
 [![GitHub stars](https://img.shields.io/github/stars/vldmoraru/gitbattle.svg?style=social&label=Star)](https://github.com/vldmoraru/gitbattle/stargazers)
