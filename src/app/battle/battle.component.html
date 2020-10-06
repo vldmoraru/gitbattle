@@ -39,9 +39,8 @@
   <div class="card shadow p-3 mb-5 bg-white rounded">
     <h5 class="card-header card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 > score2">{{player1.name}}
       <small>({{player1.login}})</small>
-      <h5 class="header-lg center-text">Winner
-        <class [inlineSVG]="'../../assets/svg/crown.svg'"></class>
-      </h5>
+      <h5 class="center-text" [inlineSVG]="'../../assets/svg/crown.svg'"></h5>
+      <h5 class="header-lg center-text">Winner</h5>
     </h5>
     <h5 class="card-header card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 < score2">{{player1.name}}
       <small>({{player1.login}})</small>
@@ -84,9 +83,8 @@
   <div class="card shadow p-3 mb-5 bg-white rounded">
     <h5 class="card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 < score2">{{player2.name}}
       <small>({{player2.login}})</small>
-      <h5 class="header-lg center-text">Winner
-        <class [inlineSVG]="'../../assets/svg/crown.svg'"></class>
-      </h5>
+      <h5 class="center-text" [inlineSVG]="'../../assets/svg/crown.svg'"></h5>
+      <h5 class="header-lg center-text">Winner</h5>
     </h5>
     <h5 class="card-header shadow-sm p-3 mb-5 rounded" *ngIf="score1 > score2">{{player2.name}}
       <small>({{player2.login}})</small>
